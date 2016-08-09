@@ -17,7 +17,7 @@
     "react-player": "^0.8.0",
     "react-router": "^2.6.1",
     "request": "^2.74.0",
-    "url": "^0.11.0",w
+    "url": "^0.11.0",
   },
   "scripts": {
     "start": "react-scripts start",
