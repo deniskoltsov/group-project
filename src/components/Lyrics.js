@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import util from '../util/helpers.js'
+
 import '../css/Lyrics.css';
 
 class Lyrics extends Component {
