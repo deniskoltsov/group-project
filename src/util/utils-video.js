@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
   getVideo: function(song) {
     const fetchSettings = {
@@ -9,10 +11,7 @@ export default {
   },
 
   playVideo: function(vidID) {
-    const fetchSettings = {
-      method: 'GET'
-    }
-    return fetch('https://www.youtube.com/embed/' + vidID + '?enablejsapi=1', fetchSettings).then((response) => {
+    return axios.get('https://www.youtube.com/embed/' + vidID + '?enablejsapi=1').then((response) => {
       return response.json()
     });
   }
