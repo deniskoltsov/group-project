@@ -6,6 +6,7 @@
     "react-scripts": "0.2.1"
   },
   "dependencies": {
+    "axios": "^0.13.1",
     "body-parser": "^1.15.2",
     "cors": "^2.7.1",
     "crypto": "0.0.3",
@@ -16,7 +17,7 @@
     "react-player": "^0.8.0",
     "react-router": "^2.6.1",
     "request": "^2.74.0",
-    "url": "^0.11.0"
+    "url": "^0.11.0",w
   },
   "scripts": {
     "start": "react-scripts start",

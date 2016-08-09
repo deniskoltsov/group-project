@@ -1,38 +1,37 @@
 import React, { Component } from 'react';
-<<<<<<< HEAD
 import youtube from '../util/utils-video.js'
-=======
-
-
->>>>>>> denis
 import '../css/Video.css';
 
 class Video extends Component {
-  constructor(){
-    super();
-    this.state = {
-      artistSearch: "",
-      songSearch: "justin beiber instrumental",
-      videoID: ""
-    }
-  }
+ constructor(){
+   super();
+   this.state = {
+     artistSearch: "",
+     songSearch: "justin beiber instrumental",
+     videoID: ""
+   }
+ }
 
 onClick(event) {
-  console.log('clicked');
-  youtube.getVideo(this.state.songSearch).then((json) => {
-    this.setState({videoID: json});
-    console.log({videoID: json});
-  });
+ console.log('clicked');
+ youtube.getVideo(this.state.songSearch).then((json) => {
+   this.setState({videoID: json.body.videoID.items[0].id.videoId});
+   console.log({videoID: json.body.videoID.items[0].id.videoId});
+   console.log({json});
+   youtube.playVideo(this.state.videoID).then((json) => {
+     console.log({json});
+   })
+ });
 }
 
 
-  render() {
-    return (
-      <div className="video-component">
-        <p onClick={(event) => this.onClick(event)}>Video goes here.</p>
-      </div>
-    );
-  }
+ render() {
+   return (
+     <div className="video-component">
+       <p onClick={(event) => this.onClick(event)}>Video goes here.</p>
+     </div>
+   );
+ }
 }
 
 export default Video;

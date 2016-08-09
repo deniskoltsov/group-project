@@ -1,13 +1,13 @@
+import axios from 'axios';
+
 export default {
-  getUrbanTranslation: function(input) {
-    const fetchSettings = {
+  getUrbanTranslation: function (input) {
+    const axiosSettings = {
       method: 'GET',
-      headers: {'X-Mashape-Key': 'PTCbf7suIBmshuOBDhfSKo0RAwZPp1dXj1PjsnMEx2Z5QbSAPV',
-      'Accept': 'text/plain'
-      }
+      data: input
     }
-    return fetch('https://mashape-community-urban-dictionary.p.mashape.com/define/' + input, fetchSettings).then((response) => {
-      return response;
-    });
+    return axios.get('http://localhost:5000/urban-translation', axiosSettings).then(res => {
+      return res.json()
+    })
   },
 }
