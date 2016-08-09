@@ -32,7 +32,7 @@ onClickSearch(event) {
           <input onChange={(event) => this.handleChangeSong(event)}/>
           <button>Click</button>
         </form>
-        <Main search={this.state.searchArtistInput, this.state.searchSongInput}/>
+        <Main artist={this.state.searchArtistInput} song={this.state.searchSongInput}/>
       </div>
     );
   }
