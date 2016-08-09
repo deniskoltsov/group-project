@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import util from '../util/helpers.js';
 import {Link} from 'react-router'
 import '../css/Nav.css';
 

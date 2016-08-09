@@ -5,7 +5,7 @@ import Lyrics from './Lyrics.js';
 import Urban from './Urban.js';
 import Video from './Video.js';
 
-import util from '../util/helpers.js'
+
 import '../css/Main.css';
 
 class Main extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
-import util from '../util/helpers.js'
+import util from '../util/utils-watson.js'
 import '../css/Watson.css';
 
 class Watson extends Component {

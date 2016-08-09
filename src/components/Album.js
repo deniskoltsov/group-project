@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import util from '../util/helpers.js'
+
 import '../css/Album.css';
 
 class Album extends Component {
