@@ -15,8 +15,12 @@ class Video extends Component {
 onClick(event) {
   console.log('clicked');
   youtube.getVideo(this.state.songSearch).then((json) => {
-    this.setState({videoID: json});
-    console.log({videoID: json});
+    this.setState({videoID: json.items[0].id.videoId});
+    console.log({videoID: json.body});
+    console.log('full object', json.items[0].id.videoId);
+    youtube.playVideo(this.state.videoID).then((json) => {
+      console.log({json});
+    })
   });
 }
 
