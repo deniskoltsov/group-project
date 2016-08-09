@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import util from '../util/helpers.js'
+
 import '../css/Video.css';
 
 class Video extends Component {
