@@ -1,0 +1,9 @@
+.main-component {
+  border: 2px solid black;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-around;
+  margin: .5%;
+  padding: .5%;
+  height: 400px;
+}
