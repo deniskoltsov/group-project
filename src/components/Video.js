@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import youtube from '../util/utils-video.js'
+=======
+
+
+>>>>>>> denis
 import '../css/Video.css';
 
 class Video extends Component {
