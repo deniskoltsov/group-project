@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Main from './Main.js';
 import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
+import lastfm from '../util/utils-lastfm';
 
 import '../css/App.css';
 
@@ -18,9 +19,10 @@ class App extends Component {
       albumImage: '',
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
-      videoUrlEnd: "?autoplay=0",
+      videoUrlEnd: "?autoplay=1",
       videoURL: "",
-      lyrics: ""
+      lyrics: "",
+      bio: ""
     }
   }
 
@@ -60,6 +62,12 @@ class App extends Component {
         })
       })
     })
+    lastfm.getInfo(this.state.searchArtistInput)
+    .then(res => {
+      this.setState({
+        bio: res.artist.bio.content
+      })
+    })
   }
 
   render() {
@@ -76,7 +84,7 @@ class App extends Component {
           </div>
           <div className='nav-item'>About Team</div>
         </div>
-        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics}/>
+        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics} bio={this.state.bio} analyze={this.state.lyrics}/>
       </div>
     );
   }

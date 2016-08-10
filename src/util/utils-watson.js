@@ -7,4 +7,16 @@ export default {
       return response;
     });
   },
-}
+  analyze: function(lyrics) {
+    const fetchSettings = {
+      method: 'GET',
+      credentials: {
+             "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+             "password": "k73aVGARYwBn",
+             "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+           }
+    }
+    return fetch('https://gateway.watsonplatform.net/tone-analyzer/api' + lyrics, fetchSettings).then((response) => {
+      return response;
+    });
+  }}
