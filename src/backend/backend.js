@@ -31,6 +31,15 @@ app.post('/urban-translation', (req, res) => {
   })
 })
 
+app.post('/analyze', (req, res) => {
+  const url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=' + req.body.data.lyrics
+  console.log(url)
+  request(url, (err, response, body) => {
+    res.send(body);
+    console.log(response)
+  })
+})
+
 
 app.listen(5000);
 
