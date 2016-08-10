@@ -19,7 +19,7 @@ class App extends Component {
       albumImage: '',
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
-      videoUrlEnd: "?autoplay=0",
+      videoUrlEnd: "?autoplay=1",
       videoURL: "",
       lyrics: "",
       bio: ""
@@ -84,7 +84,7 @@ class App extends Component {
           </div>
           <div className='nav-item'>About Team</div>
         </div>
-        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics} bio={this.state.bio}/>
+        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics} bio={this.state.bio} analyze={this.state.lyrics}/>
       </div>
     );
   }
