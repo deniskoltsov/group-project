@@ -17,7 +17,6 @@ class Lyrics extends Component {
 
   onClickTranslate(event) {
     //do all ajax here
-    const watsonInput = this.state.watsonInput;
     util.translate(this.props.lyrics).then((res) => {
       this.setState({watsonResponse: res});
       this.setState({videoURL: this.props.videoUrlStart + this.props.videoID + this.state.videoUrlEnd})
