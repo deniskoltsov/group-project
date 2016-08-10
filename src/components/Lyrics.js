@@ -11,6 +11,7 @@ class Lyrics extends Component {
     watsonResponse: {},
     videoURL: "",
     videoUrlEnd: "?autoplay=1",
+    volume: .4
     }
   }
 
@@ -31,9 +32,7 @@ class Lyrics extends Component {
         <p>{this.props.lyrics}</p>
         <button className='search-button' onClick={(event) => this.onClickTranslate(event)}>Say it</button>
         <ReactPlayer className='player' url={this.state.watsonResponse.url} playing/>
-          <iframe id="ytplayer" type="text/html" width="640" height="390"
-              src={this.state.videoURL}
-              frameBorder="0"></iframe>
+        <ReactPlayer className='player' url={this.state.videoURL} volume={this.state.volume} playing/>
       </div>
     );
   }

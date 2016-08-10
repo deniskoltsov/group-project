@@ -52,6 +52,5 @@ span.text-main  {
   margin: .5%;
   height: 400px;
   background-color: #BEDB39;
-  transition: background-color 3s ease;
-  transition: height 1s ease;
+  transition: background-color 1s ease, height 1s ease;
 }
