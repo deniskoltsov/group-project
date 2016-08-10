@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 export default {
   translate: function(input) {
     const fetchSettings = {
@@ -8,15 +10,18 @@ export default {
     });
   },
   analyze: function(lyrics) {
-    const fetchSettings = {
-      method: 'GET',
+    const axiosSettings = {
+      method: 'POST',
+      data: {
+        lyrics: lyrics
+      },
       credentials: {
              "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
              "password": "k73aVGARYwBn",
              "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
            }
     }
-    return fetch('https://gateway.watsonplatform.net/tone-analyzer/api' + lyrics, fetchSettings).then((response) => {
+    return axios.post('http://localhost:5000/analyze', axiosSettings).then((response) => {
       return response;
     });
   }}
