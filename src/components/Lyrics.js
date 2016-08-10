@@ -28,7 +28,6 @@ class Lyrics extends Component {
   render() {
     return (
       <div className="lyrics-component">
-        <h3>Lyrics go here</h3>
         <p>{this.props.lyrics}</p>
         <button className='search-button' onClick={(event) => this.onClickTranslate(event)}>Say it</button>
         <ReactPlayer className='player' url={this.state.watsonResponse.url} playing/>

@@ -3,8 +3,17 @@
   width: 600px;
   margin: .5%;
   height: 300px;
+  overflow: hidden;
 }
 
 .player {
   display: none;
+}
+
+.lyrics-component:hover {
+  background-color: dodgerblue;
+  width: 600px;
+  margin: .5%;
+  height: 100%;
+  transition: background-color 1s ease, height 1s ease;
 }
