@@ -1,7 +1,8 @@
 .album-component {
   border: 1px dotted lightgray;
-  width: 300px;
+  width: 20%;
   margin: .5%;
+  padding: 1%;
   height: 300px;
 }
 .album-row {
@@ -9,6 +10,7 @@
   justify-content: space-around;;
   align-items: center;
   flex-flow: wrap;
+  align-self: center;
 }
 
 .album-row h2 {
