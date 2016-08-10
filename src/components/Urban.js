@@ -15,6 +15,7 @@ class Urban extends Component {
 
 handleChange(event){
   this.setState({urbanInput: event.target.value})
+  console.log('urbanInput:', this.state.urbanInput);
 }
 
 onClickTranslate(event) {
@@ -33,7 +34,7 @@ onClickTranslate(event) {
         <p>Urban stuff goes here.</p>
           <input placeholder="say something" onChange={(event) => this.handleChange(event)}></input>
           <button className='search-button' onClick={(event) => this.onClickTranslate(event)}>Say it</button>
-          // <ReactPlayer className='player' url={this.state.urbanResponse.url} playing/>
+          <ReactPlayer className='player' url={this.state.urbanResponse.url} playing/>
       </div>
     );
   }
