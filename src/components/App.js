@@ -47,9 +47,9 @@ class App extends Component {
           <div className='nav-item'>Logo Goes Here</div>
           <div className='nav-item'>
             <form onSubmit={(event) => this.onClickSearch(event)}>
-              <input placeholder='artist' onChange={(event) => this.handleChangeArtist(event)}/>
-              <input placeholder='song' onChange={(event) => this.handleChangeSong(event)}/>
-              <button>Click</button>
+              <input className='input' placeholder='artist' onChange={(event) => this.handleChangeArtist(event)}/>
+              <input className='input' placeholder='song' onChange={(event) => this.handleChangeSong(event)}/>
+              <button className='btn waves-effect waves-light'>Click</button>
             </form>
           </div>
           <div className='nav-item'>About Team</div>
