@@ -4,3 +4,7 @@
   margin: 1%;
   height: 150px;
 }
+
+#ytplayer {
+  display: none;
+}
