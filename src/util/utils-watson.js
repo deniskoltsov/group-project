@@ -16,7 +16,7 @@ export default {
              "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
            }
     }
-    return fetch('https://gateway.watsonplatform.net/tone-analyzer/api' + lyrics, fetchSettings).then((response) => {
+    return fetch('https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=maggie', fetchSettings).then((response) => {
       return response;
     });
   }}
