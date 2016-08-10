@@ -1,6 +1,47 @@
 .album-component {
-  border: 3px dotted crimson;
+  border: 1px dotted lightgray;
   width: 350px;
   margin: .5%;
   height: 300px;
+}
+
+.info-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.info-container p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;;
+  color: darkgray;
+  margin: 1%;
+  font-size: .8em;
+}
+
+.album-row h2 {
+  font-family: 'Roboto', sans-serif;
+  background-color: #BEDB39;
+  font-weight: 400;
+  text-align: left;
+  color: white;
+  letter-spacing: 2px;
+  margin: 0;
+  padding: 2%;
+  font-size: 1em;
+}
+
+.album-image {
+  width: 50%;
+  height: 50%;
+  margin: 2%;
+  padding: 2%;
+  border: 1px solid lightgray;
+}
+
+span.text-main  {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 800;
+  font-size: 1.5em;
+
+  color: black;
 }

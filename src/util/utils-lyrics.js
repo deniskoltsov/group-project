@@ -1,7 +1,11 @@
 import axios from 'axios';
 
 export default {
+<<<<<<< HEAD
   getTrack: function (artist, song) {
+=======
+  getTrack: function (song, artist) {
+>>>>>>> denis
     const axiosSettings = {
       method: 'POST',
       data: {
@@ -19,7 +23,11 @@ export default {
       data: track
     }
     return axios.post('http://localhost:5000/searchlyrics', axiosSettings).then(res => {
+<<<<<<< HEAD
       return res
+=======
+      console.log(res);
+>>>>>>> denis
     })
   }
 }
