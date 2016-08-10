@@ -20,8 +20,6 @@ class App extends Component {
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
       videoUrlEnd: "?autoplay=1",
-      videoURL: ""
-      videoUrlEnd: "?enablejsapi=1&origin=http://example.com",
       videoURL: "",
       lyrics: ""
     }
