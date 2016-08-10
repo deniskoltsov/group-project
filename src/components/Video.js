@@ -30,7 +30,7 @@ class Video extends Component {
       <div className="video-component">
         <p onClick={(event) => this.onClick(event)}>Video goes here.</p>
         <iframe id="ytplayer" type="text/html" width="640" height="390"
-          src= {this.state.videoURL}
+          src={this.state.videoURL}
           frameBorder="0"></iframe>
       </div>
     );
