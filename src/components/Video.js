@@ -6,8 +6,6 @@ class Video extends Component {
   constructor(){
     super();
     this.state = {
-      artistSearch: "",
-      songSearch: "justin beiber instrumental",
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
       videoUrlEnd: "?enablejsapi=1&origin=http://example.com"
