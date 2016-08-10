@@ -22,6 +22,14 @@ app.post('/searchlyrics', (req, res) => {
   })
 })
 
+app.post('/urban-translation', (req, res) => {
+  const url = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + req.body.data.input + '&mashape-key=PTCbf7suIBmshuOBDhfSKo0RAwZPp1dXj1PjsnMEx2Z5QbSAPV';
+  console.log('url:', url);
+  request(url, (err, response, body) => {
+    res.send(body);
+  })
+})
+
 
 app.listen(5000);
 
