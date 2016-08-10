@@ -45,3 +45,13 @@ span.text-main  {
 
   color: black;
 }
+
+.album-component:hover {
+  border: 1px dotted lightgray;
+  width: 350px;
+  margin: .5%;
+  height: 400px;
+  background-color: #BEDB39;
+  transition: background-color 3s ease;
+  transition: height 1s ease;
+}
