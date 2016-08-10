@@ -1,12 +1,15 @@
 import axios from 'axios';
-
 export default {
-  getTrack: function () {
-    const fetchSettings = {
-      method: 'POST'
+  getTrack: function (artist, song) {
+    const axiosSettings = {
+      method: 'POST',
+      data: {
+        artist: artist,
+        song: song
+      }
     }
-    return fetch('http://localhost:5000/searchtrack', fetchSettings).then(res => {
-      return res.json()
+    return axios.post('http://localhost:5000/searchtrack', axiosSettings).then(res => {
+      return res
     })
   },
   getLyrics: function (track) {
@@ -14,8 +17,8 @@ export default {
       method: 'POST',
       data: track
     }
-    return axios.get('http://localhost:5000/searchlyrics', axiosSettings).then(res => {
-      console.log(res);
+    return axios.post('http://localhost:5000/searchlyrics', axiosSettings).then(res => {
+      return res
     })
   }
 }

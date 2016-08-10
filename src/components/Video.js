@@ -14,7 +14,8 @@ class Video extends Component {
 
   onClick(event) {
     console.log('clicked');
-    youtube.getVideo(this.state.songSearch).then((json) => {
+    console.log('props artist', this.props.artist);
+    youtube.getVideo(this.props.song).then((json) => {
       this.setState({videoID: json.items[0].id.videoId});
       console.log({videoID: json.items[0].id.videoId});
       console.log('full object', json);
@@ -23,17 +24,17 @@ class Video extends Component {
     });
   }
 
-
   render() {
     return (
       <div className="video-component">
         <p onClick={(event) => this.onClick(event)}>Video goes here.</p>
         <iframe id="ytplayer" type="text/html" width="640" height="390"
-          src= {this.state.videoURL}
+          src={this.state.videoURL}
           frameBorder="0"></iframe>
       </div>
     );
   }
+
 }
 
 export default Video;
