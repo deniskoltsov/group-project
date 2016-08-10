@@ -1,6 +1,14 @@
 .info-component {
-  border: 1px solid black;
-  width: 350px;
+  border: 1px dotted lightgray;
+  width: 20%;
   margin: .5%;
+  padding: 1%;
   height: 300px;
+  overflow: scroll;
+}
+
+.info-component h6 {
+  text-transform: uppercase;
+  color: #45B29D;
+  padding: 1%;
 }
