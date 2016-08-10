@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Main from './Main.js';
 import util from '../util/utils-lyrics';
+import youtube from '../util/utils-video';
 
 import '../css/App.css';
 
@@ -15,7 +16,11 @@ class App extends Component {
       song: '',
       albumName: '',
       genre: '',
-      albumImage: ''
+      albumImage: '',
+      videoID: "",
+      videoUrlStart: "https://www.youtube.com/embed/",
+      videoUrlEnd: "?enablejsapi=1&origin=http://example.com",
+      videoURL: ""
     }
   }
 
@@ -37,6 +42,14 @@ class App extends Component {
       this.setState({albumName: this.state.response.data.message.body.track.album_name});
       this.setState({genre: this.state.response.data.message.body.track.primary_genres.music_genre_list[0].music_genre.music_genre_name});
       this.setState({albumImage: this.state.response.data.message.body.track.album_coverart_500x500});
+
+    youtube.getVideo(this.state.song).then((json) => {
+        this.setState({videoID: json.items[0].id.videoId});
+        console.log({videoID: json.items[0].id.videoId});
+        console.log('full object', json);
+        this.setState({videoURL: this.state.videoUrlStart + this.state.videoID + this.state.videoUrlEnd})
+        console.log('URL', this.state.videoURL);
+      });
     })
   }
 
@@ -54,7 +67,7 @@ class App extends Component {
           </div>
           <div className='nav-item'>About Team</div>
         </div>
-        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} genre={this.state.genre} albumImage={this.state.albumImage}/>
+        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} genre={this.state.genre} albumImage={this.state.albumImage} videoURL={this.state.videoURL}/>
       </div>
     );
   }
