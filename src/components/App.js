@@ -15,13 +15,10 @@ class App extends Component {
       artist: '',
       song: '',
       albumName: '',
-      genre: '',
       albumImage: '',
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
-      videoUrlEnd: "?autoplay=1",
-      videoURL: ""
-      videoUrlEnd: "?enablejsapi=1&origin=http://example.com",
+      videoUrlEnd: "?autoplay=0",
       videoURL: "",
       lyrics: ""
     }
@@ -43,7 +40,6 @@ class App extends Component {
       this.setState({song: this.state.response.data.message.body.track.track_name});
       this.setState({artist: this.state.response.data.message.body.track.artist_name});
       this.setState({albumName: this.state.response.data.message.body.track.album_name});
-      this.setState({genre: this.state.response.data.message.body.track.primary_genres.music_genre_list[0].music_genre.music_genre_name});
       this.setState({albumImage: this.state.response.data.message.body.track.album_coverart_500x500});
 
     youtube.getVideo(this.state.song).then((json) => {
@@ -80,7 +76,7 @@ class App extends Component {
           </div>
           <div className='nav-item'>About Team</div>
         </div>
-        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} genre={this.state.genre} albumImage={this.state.albumImage} videoURL={this.state.videoURL} lyrics={this.state.lyrics}/>
+        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics}/>
       </div>
     );
   }

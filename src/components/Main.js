@@ -13,8 +13,8 @@ class Main extends Component {
   render() {
     return (
       <div className="main-component">
-        <Album artist={this.props.artist} song={this.props.song} albumName={this.props.albumName} genre={this.props.genre} albumImage={this.props.albumImage}/>
-        <Lyrics lyrics={this.props.lyrics}/>
+        <Album artist={this.props.artist} song={this.props.song} albumName={this.props.albumName} albumImage={this.props.albumImage}/>
+        <Lyrics lyrics={this.props.lyrics} videoUrlStart={this.props.videoUrlStart} videoID={this.props.videoID} videoUrlEnd={this.props.videoUrlEnd} videoURL={this.props.videoURL}/>
         <Urban artist={this.props.artist} song={this.props.song}/>
         <Video videoURL={this.props.videoURL}/>
       </div>
