@@ -6,8 +6,8 @@ class Video extends Component {
   constructor(){
     super();
     this.state = {
-      artistSearch: "",
-      songSearch: "justin beiber instrumental",
+      // artistSearch: "",
+      // songSearch: "justin beiber instrumental",
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
       videoUrlEnd: "?enablejsapi=1&origin=http://example.com"
@@ -16,7 +16,8 @@ class Video extends Component {
 
   onClick(event) {
     console.log('clicked');
-    youtube.getVideo(this.state.songSearch).then((json) => {
+    console.log('props artist', this.props.artist);
+    youtube.getVideo(this.props.song).then((json) => {
       this.setState({videoID: json.items[0].id.videoId});
       console.log({videoID: json.items[0].id.videoId});
       console.log('full object', json);
