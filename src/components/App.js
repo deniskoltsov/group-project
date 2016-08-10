@@ -33,6 +33,7 @@ onClickSearch(event) {
           <button>Click</button>
         </form>
         <Main artist={this.state.searchArtistInput} song={this.state.searchSongInput}/>
+        {this.props.children}
       </div>
     );
   }

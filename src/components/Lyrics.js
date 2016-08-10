@@ -25,7 +25,7 @@ class Lyrics extends Component {
       .then(res => {
         console.log(res)
         this.setState({
-          lyrics: res.data.message.body.lyrics.lyrics_body
+          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58)
         })
       })
     })
