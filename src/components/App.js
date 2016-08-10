@@ -20,7 +20,8 @@ class App extends Component {
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
       videoUrlEnd: "?enablejsapi=1&origin=http://example.com",
-      videoURL: ""
+      videoURL: "",
+      lyrics: ""
     }
   }
 
@@ -50,6 +51,16 @@ class App extends Component {
         this.setState({videoURL: this.state.videoUrlStart + this.state.videoID + this.state.videoUrlEnd})
         console.log('URL', this.state.videoURL);
       });
+      const data = {
+        track_id: response.data.message.body.track.track_id
+      }
+      util.getLyrics(data)
+      .then(res => {
+        console.log(res)
+        this.setState({
+          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58)
+        })
+      })
     })
   }
 
@@ -67,7 +78,7 @@ class App extends Component {
           </div>
           <div className='nav-item'>About Team</div>
         </div>
-        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} genre={this.state.genre} albumImage={this.state.albumImage} videoURL={this.state.videoURL}/>
+        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} genre={this.state.genre} albumImage={this.state.albumImage} videoURL={this.state.videoURL} lyrics={this.state.lyrics}/>
       </div>
     );
   }
