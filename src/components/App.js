@@ -19,7 +19,7 @@ class App extends Component {
       albumImage: '',
       videoID: "",
       videoUrlStart: "https://www.youtube.com/embed/",
-      videoUrlEnd: "?autoplay=1",
+      videoUrlEnd: "?autoplay=0",
       videoURL: "",
       lyrics: "",
       bio: ""
