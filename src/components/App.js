@@ -73,6 +73,8 @@ class App extends Component {
 
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
+      searchArtistInput: this.state.searchArtistInput,
+      searchSongInput: this.state.searchSongInput,
       artist: this.state.artist,
       song: this.state.song,
       albumName: this.state.albumName,
