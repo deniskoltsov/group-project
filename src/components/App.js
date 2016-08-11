@@ -3,7 +3,8 @@ import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
-import {Link} from 'react-router'
+import {Link} from 'react-router';
+import AudioRecorder from 'react-audio-recorder';
 
 import '../css/App.css';
 
@@ -157,6 +158,7 @@ navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
           </div>
           <button onClick={(event) => this.handleRecord(event)}>Record</button>
         </div>
+        <AudioRecorder />
         {childrenWithProps}
       </div>
     );

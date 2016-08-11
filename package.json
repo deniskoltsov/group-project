@@ -13,6 +13,7 @@
     "express": "^4.14.0",
     "fs": "0.0.2",
     "react": "^15.2.1",
+    "react-audio-recorder": "^0.1.0",
     "react-dom": "^15.2.1",
     "react-player": "^0.8.0",
     "react-router": "^2.6.1",
