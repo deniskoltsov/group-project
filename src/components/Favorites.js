@@ -7,18 +7,27 @@ class Favorites extends Component {
     constructor() {
       super();
       this.state = {
-        results: []
+        results: [],
+        entry: ""
       }
     }
 
-    onClick(event) {
-      event.preventDefault();
+    componentDidMount() {
       firebase.viewAll()
      .then(res => {
       console.log('results', res);
       this.setState({
         results: [res]
       })
+    })
+  }
+
+  onClick(e) {
+    e.preventDefault();
+    console.log(e.target.value)
+    firebase.delete(e.target.value)
+    .then(res => {
+      console.log(res);
     })
   }
 
@@ -38,11 +47,10 @@ class Favorites extends Component {
     return (
       <div className="favorites-component">
         <h4>All Favorites</h4>
-          <button onClick={(event) => this.onClick(event)}></button>
           <div>
             {
               logArray.map((artist, i) => {
-                return <div key={i}>{artist.artist} {artist.song}</div>
+                return <div key={i}>{artist.artist}, {artist.song} <div><button value={artist.artist + artist.song} onClick={(event) => this.onClick(event)}>Delete</button></div></div>
               })
             }
           </div>

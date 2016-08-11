@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Main from './Main.js';
 import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import lastfm from '../util/utils-lastfm';

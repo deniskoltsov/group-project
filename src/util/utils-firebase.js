@@ -15,6 +15,14 @@ export default {
     return fetch('https://group-project-fb171.firebaseio.com/favorites.json', fetchSettings).then(res => {
       return res.json();
     })
+  },
+  delete: function (entry) {
+    const fetchSettings = {
+      method: 'DELETE'
+    }
+    return fetch('https://group-project-fb171.firebaseio.com/favorites/' + entry + '.json', fetchSettings).then(res => {
+      return res.json();
+    })
   }
 
 }
