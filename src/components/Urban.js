@@ -31,9 +31,10 @@ onClickTranslate(event) {
   render() {
     return (
       <div className="urban-component">
-        <p>Urban stuff goes here.</p>
-          <input placeholder="say something" onChange={(event) => this.handleChange(event)}></input>
-          <button className='search-button' onClick={(event) => this.onClickTranslate(event)}>Say it</button>
+        <h6>Urban Translator</h6>
+        <h8>Don't get the meaning of a lyric?<br></br> Look it up below.</h8>
+          <input placeholder="what would you like defined?" onChange={(event) => this.handleChange(event)}></input>
+          <button className='urban-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickTranslate(event)}>Search it</button>
           <ReactPlayer className='player' url={this.state.urbanResponse.url} playing/>
       </div>
     );

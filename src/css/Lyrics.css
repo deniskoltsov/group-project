@@ -1,5 +1,5 @@
 .lyrics-component {
-  border: 3px solid dodgerblue;
+  border: 1px dotted lightgray;
   width: 30%;
   margin: .5%;
   padding: 1%;
@@ -7,13 +7,68 @@
   overflow: hidden;
 }
 
+.lyrics-component h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #EFC94C;
+  padding: 1%;
+}
+
+.lyrics-component p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  color: #2A2C2F;
+  font-size: .8em;
+  padding: 1%;
+}
+
+.lyrics-component h8 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: gray;
+  font-size: .8em;
+  padding: 1%;
+}
+
+.lyrics-component:hover {
+  background-color: #EFC94C;
+  border: none;
+  margin: .5%;
+  height: 80%;
+  transition: background-color .5s ease, height .5s ease;
+}
+
+.lyrics-component:hover p {
+  color: white;
+  transition: color .5s ease;
+}
+
+.lyrics-container {
+  height: 60%;
+  overflow: scroll;
+}
+
+.button-container {
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  align-items: center;
+}
+
 .player {
   display: none;
 }
 
-.lyrics-component:hover {
-  background-color: dodgerblue;
-  margin: .5%;
-  height: 100%;
-  transition: background-color 1s ease, height 1s ease;
+.lyrics-button {
+  margin-top: 1%;
+  color: white;
+  border: 1px solid white;
+  background-color: #EFC94C;
+
+}
+
+.lyrics-button:hover {
+  color: #EFC94C;
+  background-color: white;
 }

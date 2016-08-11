@@ -6,6 +6,7 @@ class Info extends Component {
     return (
       <div className="info-component">
         <h6>{this.props.artist}s Biography</h6>
+        <h8>scroll down to read</h8>
         <p>{this.props.bio}</p>
       </div>
     )

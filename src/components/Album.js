@@ -9,8 +9,8 @@ class Album extends Component {
       <div className="album-component">
         <div className='album-container'>
           <div className='album-row'>
-            <h2>Artist: {this.props.artist}</h2>
-            <h2>Title: {this.props.song}</h2>
+            <h6>Artist: {this.props.artist}</h6>
+            <h6>Title: {this.props.song}</h6>
           </div>
           <div className='album-row'>
             <p>Album: {this.props.albumName}</p>
@@ -19,6 +19,7 @@ class Album extends Component {
             <img className='album-image' src={this.props.albumImage} alt='cover'></img>
           </div>
         </div>
+          <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to Favorites</button>
       </div>
     );
   }
