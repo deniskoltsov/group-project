@@ -58,11 +58,7 @@ function identify(data, options, cb) {
   }, cb);
 }
 
-<<<<<<< HEAD
-const bitmap = fs.readFileSync('../assets/cut-audio.mp3');
-=======
 var bitmap = fs.readFileSync('../assets/2.wav');
->>>>>>> hiro
 
 identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
