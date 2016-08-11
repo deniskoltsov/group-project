@@ -59,7 +59,7 @@ function identify(data, options, cb) {
   }, cb);
 }
 
-var bitmap = fs.readFileSync('./audio/cut-audio.mp3');
+var bitmap = fs.readFileSync('../assets/2.wav');
 
 identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
