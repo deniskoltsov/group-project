@@ -22,6 +22,8 @@ class App extends Component {
       videoUrlStart: "https://www.youtube.com/embed/",
       videoUrlEnd: "?autoplay=0",
       videoURL: "",
+      videoURLInstrumental: '',
+      videoIDInstrumental: '',
       lyrics: "",
       bio: "",
       analysis: {},
@@ -38,7 +40,6 @@ class App extends Component {
   }
 
   onClickSearch(event){
-    console.log('click');
     event.preventDefault();
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
@@ -48,12 +49,17 @@ class App extends Component {
       this.setState({albumName: this.state.response.data.message.body.track.album_name});
       this.setState({albumImage: this.state.response.data.message.body.track.album_coverart_500x500});
 
+    youtube.getInstrumentalVideo(this.state.song).then((json) => {
+        console.log("video instrumental response:", json);
+        this.setState({videoIDInstrumental: json.items[0].id.videoId});
+        this.setState({videoURLInstrumental: this.state.videoUrlStart + this.state.videoIDInstrumental + this.state.videoUrlEnd})
+        console.log('Instrumental VIDEO URL:', this.state.videoURLInstrumental);
+        });
     youtube.getVideo(this.state.song).then((json) => {
-        console.log("video response:", json);
+        console.log("Regular video response:", json);
         this.setState({videoID: json.items[0].id.videoId});
-        console.log({videoID: json.items[0].id.videoId});
         this.setState({videoURL: this.state.videoUrlStart + this.state.videoID + this.state.videoUrlEnd})
-        console.log('URL', this.state.videoURL);
+        console.log('Regular VIDEO URL:', this.state.videoURL);
       });
       const data = {
         track_id: response.data.message.body.track.track_id
@@ -74,8 +80,6 @@ class App extends Component {
     })
     watsonAnalyze.analyze(this.props.lyrics).then((json) => {
         this.setState({analysis: json});
-        console.log('analysis:', json);
-        console.log('blah:', json.data.document_tone.tone_categories);
         this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
         console.log('tonesObject:', this.state.tonesObject);
       });
@@ -127,7 +131,9 @@ navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
       videoID: this.state.videoID,
       videoUrlStart: "https://www.youtube.com/embed/",
       videoUrlEnd: "?autoplay=0",
-      videoURL: '',
+      videoURL: this.state.videoURL,
+      videoURLInstrumental: this.state.videoURLInstrumental,
+      videoIDInstrumental: this.state.videoIDInstrumental,
       lyrics: this.state.lyrics,
       bio: this.state.bio,
       analysis: this.state.analysis,

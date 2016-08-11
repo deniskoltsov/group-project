@@ -1,6 +1,70 @@
 .analyze-component {
-  border: 1px dotted red;
-  width: 48%;
+  border: 1px dotted lightgray;
+  width: 25%;
   margin: 1%;
   height: 150px;
+  overflow: scroll;
+}
+
+.analyze-component h6 {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: dodgerblue;
+  padding: 1%;
+}
+
+.ul-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-flow: column;
+  margin: 0;
+}
+
+.analyze-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 1%;
+}
+
+.name {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color: dodgerblue;
+  font-size: .8em;
+}
+
+.score{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: crimson;
+  font-size: .8em;
+}
+
+.analyze-component:hover {
+  width: 25%;
+  height: 250px;
+  background-color: dodgerblue;
+  border: none;
+  transition: width .5s ease, height .5s ease, background-color .5s ease;
+}
+
+.analyze-component:hover h6 {
+  color: white;
+  transition: color .5s ease,
+}
+
+.analyze-component:hover .score {
+  color: white;
+  font-size: 1.6em;
+  transition: font-size .5s ease, color .5s ease;
+}
+
+.analyze-component:hover .name {
+  color: white;
+  font-size: 1.3em;
+  transition: font-size .5s ease, color .5s ease;
 }

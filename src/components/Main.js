@@ -14,7 +14,7 @@ class Main extends Component {
       <div className="main-component">
         <Album artist={this.props.artist} song={this.props.song} albumName={this.props.albumName} albumImage={this.props.albumImage} searchSongInput={this.props.searchSongInput} searchArtistInput={this.props.searchArtistInput}/>
         <Info bio={this.props.bio} artist={this.props.artist}/>
-        <Lyrics lyrics={this.props.lyrics} videoUrlStart={this.props.videoUrlStart} videoID={this.props.videoID} videoUrlEnd={this.props.videoUrlEnd} videoURL={this.props.videoURL}/>
+        <Lyrics lyrics={this.props.lyrics} videoUrlStart={this.props.videoUrlStart} videoID={this.props.videoID} videoUrlEnd={this.props.videoUrlEnd} videoURLInstrumental={this.props.videoURLInstrumental}/>
         <Urban artist={this.props.artist} song={this.props.song}/>
         <Video videoURL={this.props.videoURL}/>
         <Analyze lyrics={this.props.lyrics} analysis={this.props.analysis} tonesObject={this.props.tonesObject} />

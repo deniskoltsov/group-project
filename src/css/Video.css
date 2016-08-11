@@ -1,10 +1,18 @@
 .video-component {
-  border: 3px dotted cyan;
-  width: 48%;
+  border: 1px dotted lightgray;
+  width: 70%;
   margin: 1%;
   height: 150px;
+  overflow: hidden;
 }
 
-#ytplayer {
-  display: none;
+.video-component h6  {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: gray;
+  padding: 1%;
+}
+
+.video-container {
+  margin: 1%;
 }

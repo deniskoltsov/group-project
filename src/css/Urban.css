@@ -69,6 +69,7 @@
 .urban-results p {
   font-family: 'Roboto', sans-serif;
   font-weight: 200;
+  color: white;
 }
 
 .urban-component:hover .urban-results {

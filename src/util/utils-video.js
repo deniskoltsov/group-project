@@ -1,11 +1,19 @@
 import axios from 'axios';
 
 export default {
-  getVideo: function(song) {
+  getInstrumentalVideo: function(song) {
     const fetchSettings = {
       method: 'GET'
     }
     return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '+instrumental&key=AIzaSyDRRYf5OzE5u7LKiRXslAULAUSxnS1SufE', fetchSettings).then((response) => {
+      return response.json();
+    });
+  },
+  getVideo: function(song) {
+    const fetchSettings = {
+      method: 'GET'
+    }
+    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '&key=AIzaSyDRRYf5OzE5u7LKiRXslAULAUSxnS1SufE', fetchSettings).then((response) => {
       return response.json();
     });
   },
