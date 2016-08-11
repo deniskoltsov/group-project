@@ -1,8 +1,22 @@
 import React, { Component } from 'react';
+import util from '../util/utils-firebase.js';
 
 import '../css/Album.css';
 
 class Album extends Component {
+
+  onClickFavorite(e) {
+    e.preventDefault();
+    const data = {};
+    data[this.props.artist + this.props.song] = {
+      artist: this.props.artist,
+      song: this.props.song
+    }
+    util.addFav(data)
+    .then(res => {
+      console.log(res);
+    })
+  }
 
   render() {
     return (
