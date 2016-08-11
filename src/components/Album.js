@@ -8,6 +8,7 @@ class Album extends Component {
   onClickFavorite(e) {
     e.preventDefault();
     const data = {};
+    console.log(this.props.searchSongInput)
     data[this.props.artist + this.props.song] = {
       artist: this.props.artist,
       song: this.props.song,
