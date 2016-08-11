@@ -14,6 +14,11 @@
   padding: 1%;
 }
 
+.lyrics-component:hover h6 {
+  color: white;
+  transition: color .5s ease;
+}
+
 .lyrics-component p {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -28,6 +33,11 @@
   color: gray;
   font-size: .8em;
   padding: 1%;
+}
+
+.lyrics-component:hover h8 {
+  color: white;
+  transition: color .5s ease;
 }
 
 .lyrics-component:hover {
