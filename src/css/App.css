@@ -26,6 +26,10 @@ form {
   color: white;
 }
 
+Link {
+  background-color: none;
+}
+
 .search-button:hover {
   background-color: #EFC94C;
   color: #334D5C;
@@ -43,4 +47,11 @@ form {
 
 .nav-item h7 {
   color: white;
+}
+
+.buttonnnn {
+  border: none !important;
+  background-color: #334D5C !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
