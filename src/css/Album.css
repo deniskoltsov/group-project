@@ -4,6 +4,7 @@
   margin: .5%;
   padding: 1%;
   height: 300px;
+  overflow: hidden;
 }
 .album-row {
   display: flex;

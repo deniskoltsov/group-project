@@ -1,26 +1,23 @@
 import React, { Component } from 'react';
-import util from '../util/utils-watson.js'
+import '../css/Analyze.css';
 
 class Analyze extends Component {
-  constructor() {
-  super();
-  this.state = {
-    analysis: {},
-    }
-  }
-
-  onClickAnalysis(event) {
-    event.preventDefault();
-    util.analyze(this.props.lyrics).then((json) => {
-        this.setState({analysis: json});
-        console.log({analysis: json});
-      });
-    }
 
 render() {
+  const emotions = this.props.tonesObject.map((object, i)  => {
+    for (var key in object) {
+      return <li key={i}>{object.tone_name}, {object.score}</li>
+      }
+  })
   return (
-    <div className="App">
-      <button className='translate-button' onClick={(event) => this.onClickAnalysis(event)}>Analyze Lyrics</button>
+    <div className="analyze-component">
+      <div className='anazlyze-container'>
+      <div>
+        <ul>
+          {emotions}
+        </ul>
+        </div>
+      </div>
     </div>
   );
   }

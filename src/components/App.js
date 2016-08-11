@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
+import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
 import {Link} from 'react-router'
 
@@ -22,7 +23,9 @@ class App extends Component {
       videoUrlEnd: "?autoplay=0",
       videoURL: "",
       lyrics: "",
-      bio: ""
+      bio: "",
+      analysis: {},
+      tonesObject: []
     }
   }
 
@@ -69,6 +72,13 @@ class App extends Component {
         bio: res.artist.bio.content
       })
     })
+    watsonAnalyze.analyze(this.props.lyrics).then((json) => {
+        this.setState({analysis: json});
+        console.log('analysis:', json);
+        console.log('blah:', json.data.document_tone.tone_categories);
+        this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
+        console.log('tonesObject:', this.state.tonesObject);
+      });
   }
 
   render() {
@@ -84,7 +94,9 @@ class App extends Component {
       videoUrlEnd: "?autoplay=0",
       videoURL: '',
       lyrics: this.state.lyrics,
-      bio: this.state.bio
+      bio: this.state.bio,
+      analysis: this.state.analysis,
+      tonesObject: this.state.tonesObject
     }))
     return (
       <div className="App">
