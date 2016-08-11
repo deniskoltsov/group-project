@@ -10,7 +10,9 @@ class Album extends Component {
     const data = {};
     data[this.props.artist + this.props.song] = {
       artist: this.props.artist,
-      song: this.props.song
+      song: this.props.song,
+      album: this.props.albumName,
+      cover: this.props.albumImage
     }
     util.addFav(data)
     .then(res => {

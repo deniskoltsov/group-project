@@ -3,6 +3,7 @@ const express = require('express'),
       cors = require('cors'),
       request = require('request'),
       bodyParser = require('body-parser');
+      watson = require('watson-developer-cloud');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
