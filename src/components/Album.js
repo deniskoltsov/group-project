@@ -10,8 +10,8 @@ class Album extends Component {
     const data = {};
     console.log(this.props.searchArtistInput, this.props.searchSongInput);
     data[this.props.searchArtistInput + this.props.searchSongInput] = {
-      artist: this.props.artist,
-      song: this.props.song,
+      artist: this.props.searchArtistInput,
+      song: this.props.searchSongInput,
       album: this.props.albumName,
       cover: this.props.albumImage
     }
