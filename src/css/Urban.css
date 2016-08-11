@@ -1,7 +1,56 @@
 .urban-component {
-  border: 3px dotted limegreen;
+  border: 1px dotted lightgray;
   width: 20%;
   height: 300px;
   margin: .5%;
   padding: 1%;
+}
+
+.urban-button {
+  background-color: #BEDB39;
+  color: white;
+  border: 1px solid white;
+}
+
+.urban-button:hover {
+  color: #BEDB39;
+  background-color: white;
+  border: 1px solid white;
+}
+
+.urban-component:hover {
+  border: none;
+  background-color: #BEDB39;
+  height: 400px;
+  width: 25%;
+  transition: width .5s ease, height .5s ease;
+}
+
+.urban-component h6 {
+  color: #BEDB39;
+  padding: 1%;
+  text-transform: uppercase;
+}
+
+.urban-component:hover h6 {
+  color: white;
+  transition: color .5s ease;
+}
+
+.urban-component h8 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: gray;
+  font-size: .8em;
+  padding: 1%;
+}
+
+.urban-component:hover h8 {
+  color: white;
+  transition: color .5s ease;
+}
+
+.urban-container:hover p {
+  color: white;
+  transition: color .5s ease;
 }

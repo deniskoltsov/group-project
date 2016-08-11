@@ -13,14 +13,12 @@
   align-self: center;
 }
 
-.album-row h2 {
+.album-row h6 {
   text-transform: uppercase;
-  font-weight: 400;
   color: #DF5A49;
   letter-spacing: 2px;
   margin: 0;
-  padding: 2%;
-  font-size: .8em;
+  padding: 1%;
 }
 
 .album-row p {
@@ -43,19 +41,30 @@
 }
 
 .album-component:hover {
-  border: 1px dotted lightgray;
+  border: none;
   margin: .5%;
   background-color: #DF5A49;
-  transition: background-color 1s ease, height 1s ease, transform 2s ease;
+  transition: background-color .5s ease, height .5s ease;
 }
 
-.album-component:hover h2 {
+.album-component:hover h6 {
   color: white;
   font-size: 1em;
-  transition: color 1s ease, font-size 1s ease, transform 2s ease;
+  transition: color .5s ease, font-size .5s ease;
 }
 
 .album-component:hover p {
   color: white;
-  transition: color 1s ease, font-size 1s ease, transform 2s ease;
+  transition: color .5s ease, font-size .5s ease;
+}
+
+.favs-button {
+  color: white;
+  border: 1px solid white;
+  background-color: #DF5A49;
+}
+
+.favs-button:hover {
+  color: #DF5A49;
+  background-color: white;
 }

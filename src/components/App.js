@@ -74,15 +74,15 @@ class App extends Component {
     return (
       <div className="App">
         <div className='nav-container'>
-          <div className='nav-item'>Logo Goes Here</div>
+          <div className='nav-item'><h7>Logo Goes Here</h7></div>
           <div className='nav-item'>
             <form onSubmit={(event) => this.onClickSearch(event)}>
               <input className='input' placeholder='artist' onChange={(event) => this.handleChangeArtist(event)}/>
               <input className='input' placeholder='song' onChange={(event) => this.handleChangeSong(event)}/>
-              <button className='btn waves-effect waves-light'>Click</button>
+              <button className='search-button waves-effect waves-teal btn-flat'>Search</button>
             </form>
           </div>
-          <div className='nav-item'>About Team</div>
+          <div className='nav-item'><button className='team-button waves-effect waves-teal btn-flat'>About the Team</button></div>
         </div>
         <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics} bio={this.state.bio} analyze={this.state.lyrics}/>
       </div>

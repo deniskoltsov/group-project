@@ -12,3 +12,30 @@
   color: #45B29D;
   padding: 1%;
 }
+
+.info-component p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  text-align: left;
+  color: #2A2C2F;
+  font-size: .8em;
+  padding: 1%;
+}
+
+.info-component h8 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  color: gray;
+  font-size: .8em;
+  padding: 1%;
+}
+
+.info-component:hover {
+  border: 1px dotted lightgray;
+  width: 25%;
+  margin: .5%;
+  padding: 1%;
+  height: 80%;
+  overflow: scroll;
+  transition: width .5s ease, height .5s ease;
+}

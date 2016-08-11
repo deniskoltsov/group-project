@@ -27,8 +27,14 @@ class Lyrics extends Component {
   render() {
     return (
       <div className="lyrics-component">
+        <h6>LYRICS</h6>
+        <h8>scroll down to read</h8>
+        <div className='lyrics-container'>
         <p>{this.props.lyrics}</p>
-        <button className='search-button' onClick={(event) => this.onClickTranslate(event)}>Say it</button>
+        </div>
+        <div className='button-container'>
+        <button className='lyrics-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickTranslate(event)}>Spit it Watson</button>
+        </div>
         <ReactPlayer className='player' url={this.state.watsonResponse.url} playing/>
         <ReactPlayer className='player' url={this.state.videoURL} volume={this.state.volume} playing/>
       </div>

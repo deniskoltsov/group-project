@@ -3,7 +3,7 @@
 }
 
 .nav-container {
-  border: 2px solid orange;
+  background-color: #334D5C;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -12,9 +12,35 @@
 
 .input {
   width: 150px !important;
-  margin: 1% !important;
+  margin: 2% !important;
+  background-color: white !important;
+  height: 30px !important;;
 }
 
 form {
   width: 600px !important;
+}
+
+.search-button {
+  border: 1px solid #EFC94C;
+  color: white;
+}
+
+.search-button:hover {
+  background-color: #EFC94C;
+  color: #334D5C;
+}
+
+.team-button {
+  border: 1px solid #EFC94C;
+  color: white;
+}
+
+.team-button:hover {
+  background-color: #EFC94C;
+  color: #334D5C;
+}
+
+.nav-item h7 {
+  color: white;
 }
