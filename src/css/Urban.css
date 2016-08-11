@@ -4,6 +4,7 @@
   height: 300px;
   margin: .5%;
   padding: 1%;
+  overflow: hidden;
 }
 
 .urban-button {
@@ -51,6 +52,32 @@
 }
 
 .urban-container:hover p {
+  color: white;
+  transition: color .5s ease;
+}
+
+.urban-input {
+  margin: 1% !important;
+  background-color: white !important;
+}
+
+.urban-results {
+  height: 40%;
+  overflow: scroll;
+}
+
+.urban-results p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 200;
+}
+
+.urban-component:hover .urban-results {
+  height: 55%;
+  overflow: scroll;
+  transition: height .5s ease;
+}
+
+.urban-component:hover .urban-results p {
   color: white;
   transition: color .5s ease;
 }

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Main from './Main.js';
 import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import lastfm from '../util/utils-lastfm';
@@ -47,9 +46,9 @@ class App extends Component {
       this.setState({albumImage: this.state.response.data.message.body.track.album_coverart_500x500});
 
     youtube.getVideo(this.state.song).then((json) => {
+        console.log("video response:", json);
         this.setState({videoID: json.items[0].id.videoId});
         console.log({videoID: json.items[0].id.videoId});
-        console.log('full object', json);
         this.setState({videoURL: this.state.videoUrlStart + this.state.videoID + this.state.videoUrlEnd})
         console.log('URL', this.state.videoURL);
       });
@@ -79,9 +78,9 @@ class App extends Component {
       albumName: this.state.albumName,
       albumImage: this.state.albumImage,
       videoID: this.state.videoID,
-      videoUrlStart: this.state.videoUrlStart,
-      videoUrlEnd: this.state.videoUrlEnd,
-      videoURL: this.state.videoURL,
+      videoUrlStart: "https://www.youtube.com/embed/",
+      videoUrlEnd: "?autoplay=0",
+      videoURL: '',
       lyrics: this.state.lyrics,
       bio: this.state.bio
     }))
