@@ -7,6 +7,14 @@ export default {
   return fetch('https://group-project-fb171.firebaseio.com/favorites.json', fetchSettings).then(res => {
     return res.json();
   })
-}
+},
+  viewAll: function () {
+    const fetchSettings = {
+      method: 'GET'
+    }
+    return fetch('https://group-project-fb171.firebaseio.com/favorites.json', fetchSettings).then(res => {
+      return res.json();
+    })
+  }
 
 }
