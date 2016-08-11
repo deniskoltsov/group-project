@@ -19,7 +19,7 @@ class Lyrics extends Component {
     //do all ajax here
     util.translate(this.props.lyrics).then((res) => {
       this.setState({watsonResponse: res});
-      this.setState({videoURL: this.props.videoUrlStart + this.props.videoID + this.state.videoUrlEnd})
+      this.setState({videoURL: this.props.videoURLInstrumental})
       console.log(res);
     });
   }
