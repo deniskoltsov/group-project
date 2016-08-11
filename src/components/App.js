@@ -3,6 +3,7 @@ import Main from './Main.js';
 import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import lastfm from '../util/utils-lastfm';
+import {Link} from 'react-router'
 
 import '../css/App.css';
 
@@ -35,6 +36,7 @@ class App extends Component {
   }
 
   onClickSearch(event){
+    console.log('click');
     event.preventDefault();
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
@@ -71,20 +73,36 @@ class App extends Component {
   }
 
   render() {
+    const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
+      artist: this.state.artist,
+      song: this.state.song,
+      albumName: this.state.albumName,
+      albumImage: this.state.albumImage,
+      videoID: this.state.videoID,
+      videoUrlStart: this.state.videoUrlStart,
+      videoUrlEnd: this.state.videoUrlEnd,
+      videoURL: this.state.videoURL,
+      lyrics: this.state.lyrics,
+      bio: this.state.bio
+    }))
     return (
       <div className="App">
         <div className='nav-container'>
           <div className='nav-item'><h7>Logo Goes Here</h7></div>
           <div className='nav-item'>
-            <form onSubmit={(event) => this.onClickSearch(event)}>
+            <form>
               <input className='input' placeholder='artist' onChange={(event) => this.handleChangeArtist(event)}/>
               <input className='input' placeholder='song' onChange={(event) => this.handleChangeSong(event)}/>
-              <button className='search-button waves-effect waves-teal btn-flat'>Search</button>
+              <button className='buttonnnn' onClick={(event) => this.onClickSearch(event)}><Link to='/main' className='search-button waves-effect waves-teal btn-flat' >Search</Link></button>
+
             </form>
           </div>
-          <div className='nav-item'><button className='team-button waves-effect waves-teal btn-flat'>About the Team</button></div>
+          <div className='nav-item'>
+            <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
+            <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
+          </div>
         </div>
-        <Main artist={this.state.artist} song={this.state.song} albumName={this.state.albumName} albumImage={this.state.albumImage} videoUrlStart={this.state.videoUrlStart} videoID={this.state.videoID} videoUrlEnd={this.state.videoUrlEnd} videoURL={this.state.videoURL} lyrics={this.state.lyrics} bio={this.state.bio} analyze={this.state.lyrics}/>
+        {childrenWithProps}
       </div>
     );
   }

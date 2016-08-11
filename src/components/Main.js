@@ -19,6 +19,7 @@ class Main extends Component {
         <Urban artist={this.props.artist} song={this.props.song}/>
         <Video videoURL={this.props.videoURL}/>
         <Analyze lyrics={this.props.lyrics}/>
+
       </div>
     );
   }
