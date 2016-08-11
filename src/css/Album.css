@@ -6,13 +6,6 @@
   height: 300px;
   overflow: hidden;
 }
-.album-row {
-  display: flex;
-  justify-content: space-around;;
-  align-items: center;
-  flex-flow: wrap;
-  align-self: center;
-}
 
 .album-row h6 {
   text-transform: uppercase;

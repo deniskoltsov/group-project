@@ -36,13 +36,19 @@ class Favorites extends Component {
     const favoritesArray = [];
     const logArray = [];
     for (let key in this.state.results) {
+      if(this.state.results.length) {
       favoritesArray.push(this.state.results[key])
       for (let key in favoritesArray[0]) {
+        if(this.state.results.length) {
         logArray.push(favoritesArray[0][key])
       }
+      }
+    }
       console.log('fave array',favoritesArray);
       console.log('fave array',logArray);
     }
+
+
 
     return (
       <div className="favorites-component">
