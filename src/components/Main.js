@@ -5,7 +5,6 @@ import Urban from './Urban.js';
 import Video from './Video.js';
 import Info from './Info.js';
 import Analyze from './Analyze.js';
-
 import '../css/Main.css';
 
 class Main extends Component {
