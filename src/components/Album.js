@@ -10,6 +10,8 @@ class Album extends Component {
     const data = {};
     console.log(this.props.searchSongInput)
     data[this.props.artist + this.props.song] = {
+    console.log(this.props.searchArtistInput, this.props.searchSongInput);
+    data[this.props.searchArtistInput + this.props.searchSongInput] = {
       artist: this.props.artist,
       song: this.props.song,
       album: this.props.albumName,
@@ -17,7 +19,7 @@ class Album extends Component {
     }
     util.addFav(data)
     .then(res => {
-      console.log(res);
+      console.log('result', res);
     })
   }
 
