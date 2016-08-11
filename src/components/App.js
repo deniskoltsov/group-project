@@ -81,6 +81,41 @@ class App extends Component {
       });
   }
 
+  handleRecord(e) {
+  e.preventDefault();
+  // shim and create AudioContext
+window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
+var audio_context = new AudioContext();
+
+  var WORKER_PATH = '../util/recorderWorker.js';
+var recorder;
+var Recorder = function(source, cfg){
+    var config = cfg || {};
+    var bufferLen = config.bufferLen || 4096;
+    this.context = source.context;
+    this.node = this.context.createScriptProcessor(bufferLen, 2, 2);
+    var worker = new Worker(config.workerPath || WORKER_PATH);
+    worker.postMessage({
+      command: 'init',
+      config: {
+        sampleRate: this.context.sampleRate
+      }
+    })
+  }
+
+function startUserMedia(stream) {
+    var input = audio_context.createMediaStreamSource(stream);
+    input.connect(audio_context.destination);
+    recorder = new Recorder(input);
+}
+
+// shim and start GetUserMedia audio stream
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+navigator.getUserMedia({audio: true}, startUserMedia, function(e) {
+  console.log('No live audio input: ' + e);
+});
+}
+
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
       searchArtistInput: this.state.searchArtistInput,
@@ -114,6 +149,7 @@ class App extends Component {
             <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
+          <button onClick={(event) => this.handleRecord(event)}>Record</button>
         </div>
         {childrenWithProps}
       </div>

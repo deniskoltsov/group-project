@@ -1,12 +1,11 @@
-
-var url = require('url');
-var fs = require('fs');
-var crypto = require('crypto');
+const url = require('url');
+const fs = require('fs');
+const crypto = require('crypto');
 //npm install request
-var request = require('request');
+const request = require('request');
 
 // Replace "###...###" below with your project's host, access_key and access_secret.
-var defaultOptions = {
+const defaultOptions = {
   host: 'us-west-2.api.acrcloud.com',
   endpoint: '/v1/identify',
   signature_version: '1',
@@ -31,19 +30,19 @@ function sign(signString, accessSecret) {
  */
 function identify(data, options, cb) {
 
-  var current_data = new Date();
-  var timestamp = current_data.getTime()/1000;
+  const current_data = new Date();
+  const timestamp = current_data.getTime()/1000;
 
-  var stringToSign = buildStringToSign('POST',
+  const stringToSign = buildStringToSign('POST',
     options.endpoint,
     options.access_key,
     options.data_type,
     options.signature_version,
     timestamp);
 
-  var signature = sign(stringToSign, options.access_secret);
+  const signature = sign(stringToSign, options.access_secret);
 
-  var formData = {
+  const formData = {
     sample: data,
     access_key:options.access_key,
     data_type:options.data_type,
@@ -59,7 +58,7 @@ function identify(data, options, cb) {
   }, cb);
 }
 
-var bitmap = fs.readFileSync('./audio/cut-audio.mp3');
+const bitmap = fs.readFileSync('../assets/cut-audio.mp3');
 
 identify(new Buffer(bitmap), defaultOptions, function (err, httpResponse, body) {
   if (err) console.log(err);
