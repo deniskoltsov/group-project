@@ -75,7 +75,7 @@ class App extends Component {
     lastfm.getInfo(this.state.searchArtistInput)
     .then(res => {
       this.setState({
-        bio: res.artist.bio.content
+        bio: res.artist.bio.content.slice(0, -175)
       })
     })
     watsonAnalyze.analyze(this.props.lyrics).then((json) => {
