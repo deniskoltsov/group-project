@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "NODE_ENV=production node server.js"
+    "prod": "NODE_ENV=production node backend.js"
   },
   "author": "",
   "license": "ISC",
