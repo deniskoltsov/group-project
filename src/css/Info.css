@@ -39,3 +39,7 @@
   overflow: scroll;
   transition: width .5s ease, height .5s ease;
 }
+
+.icons {
+  margin: 1%;
+}

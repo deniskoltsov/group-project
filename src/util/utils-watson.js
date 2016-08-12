@@ -21,7 +21,7 @@ export default {
              "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
            }
     }
-    return axios.post('http://localhost:5000/analyze', axiosSettings).then((response) => {
+    return axios.post('https://immense-beach-20112.herokuapp.com/analyze', axiosSettings).then((response) => {
       return response;
     });
   }}
