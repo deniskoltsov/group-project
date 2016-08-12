@@ -17,14 +17,14 @@ app.get('*', (req, res) =>
 )
 
 app.post('/searchtrack', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f'
+  const url = 'https://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f'
   request(url, (err, response, body) => {
    res.send(body);
   })
 })
 
 app.post('/searchlyrics', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f';
+  const url = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f';
   request(url, (err, response, body) => {
     res.send(body);
   })
