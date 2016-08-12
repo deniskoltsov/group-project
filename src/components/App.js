@@ -122,7 +122,7 @@ class App extends Component {
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
-        <h1>what?</h1>
+        <h1>nothing is working?</h1>
         {childrenWithProps}
       </div>
     );
