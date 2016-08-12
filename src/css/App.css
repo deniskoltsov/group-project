@@ -8,6 +8,7 @@
   align-items: center;
   justify-content: space-around;
   height: 75px;
+  overflow: hidden;
 }
 
 .input {
@@ -38,6 +39,7 @@ Link {
 .team-button {
   border: 1px solid #EFC94C;
   color: white;
+  margin: 0 !important;
 }
 
 .team-button:hover {
@@ -54,4 +56,15 @@ Link {
   background-color: #334D5C !important;
   padding: 0 !important;
   margin: 0 !important;
+}
+
+.favorites-button {
+  border: 1px solid #EFC94C;
+  color: white;
+  margin-left: 10px !important;
+}
+
+.favorites-button:hover {
+  background-color: #EFC94C;
+  color: #334D5C;
 }
