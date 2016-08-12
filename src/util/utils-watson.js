@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
   translate: function(input) {
     const axiosSettings = {
-      method: 'POST',
+      method: 'GET',
       data: {
         input: input
       },
