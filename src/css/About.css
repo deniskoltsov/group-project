@@ -1,0 +1,32 @@
+
+.teammates {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 25px;
+  height: 25px;
+  justify-content: space-around;
+}
+
+.maggie {
+  margin: 2%;
+  flex-wrap: wrap;
+}
+
+.denis {
+  margin: 2%;
+  flex-wrap: wrap;
+}
+
+.hiro {
+  margin: 2%;
+  flex-wrap: wrap;
+}
+
+img {
+  width: 20em;
+  height: 20em
+}
