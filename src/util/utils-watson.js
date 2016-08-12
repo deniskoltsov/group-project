@@ -13,7 +13,7 @@ export default {
         "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
       }
     }
-    return axios.post('https://immense-beach-20112.herokuapp.com/text-to-speech', axiosSettings).then((response) => {
+    return axios.get('https://immense-beach-20112.herokuapp.com/text-to-speech', axiosSettings).then((response) => {
       return response;
     });
   },
