@@ -47,14 +47,16 @@ app.post('/analyze', (req, res) => {
   })
 })
 
+app.post('/text-to-speech', (req, res) => {
+  const url = 'https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + req.body.data.input
+  console.log(url)
+  request(url, (err, response, body) => {
+    res.send(body);
+    console.log(response)
+  })
+})
+
 PORT = process.env.PORT || 80;
-
-<<<<<<< HEAD:src/backend/backend.js
-app.listen(5000);
-
-console.log('Express server started on port 5000');
-=======
 app.listen(PORT);
 
 console.log('Express server started on port', PORT);
->>>>>>> 504087080dc1e6a686e0c86d3e2a72d1a1d0a0b5:backend.js
