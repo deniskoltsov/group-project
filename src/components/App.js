@@ -121,7 +121,6 @@ class App extends Component {
             <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
-          <button onClick={(event) => this.handleRecord(event)}>Record</button>
         </div>
         <AudioRecorder />
         {childrenWithProps}

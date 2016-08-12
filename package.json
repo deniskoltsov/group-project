@@ -19,7 +19,7 @@
     "react-router": "^2.6.1",
     "request": "^2.74.0",
     "url": "^0.11.0",
-    "watson-developer-cloud": "^2.0.2"
+    "watson-developer-cloud": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
