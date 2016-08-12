@@ -5,6 +5,7 @@ import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
 import {Link} from 'react-router';
 import AudioRecorder from 'react-audio-recorder';
+import firebase from '../util/utils-firebase';
 
 import '../css/App.css';
 
@@ -86,6 +87,13 @@ class App extends Component {
       });
   }
 
+  sendSong(data) {
+    firebase.addFav()
+    .then(res => {
+      console.log("wavyyyy", res);
+    })
+  }
+
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
       searchArtistInput: this.state.searchArtistInput,
@@ -121,9 +129,8 @@ class App extends Component {
             <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
-          <button onClick={(event) => this.handleRecord(event)}>Record</button>
         </div>
-        <AudioRecorder />
+        <AudioRecorder onChange={(data) => this.sendSong(data)}/>
         {childrenWithProps}
       </div>
     );
