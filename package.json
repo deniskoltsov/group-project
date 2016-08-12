@@ -1,6 +1,10 @@
 {
   "name": "group-project",
   "version": "0.0.1",
+  "engines": {
+    "node": "6.3.1",
+    "npm": "3.10.3"
+  },
   "private": true,
   "devDependencies": {
     "react-scripts": "0.2.1"
@@ -12,14 +16,15 @@
     "crypto": "0.0.3",
     "express": "^4.14.0",
     "fs": "0.0.2",
+    "path": "^0.12.7",
     "react": "^15.2.1",
-    "react-audio-recorder": "^0.1.0",
     "react-dom": "^15.2.1",
     "react-player": "^0.8.0",
     "react-router": "^2.6.1",
-    "request": "^2.74.0",
+    "request": "^2.65.0",
     "url": "^0.11.0",
-    "watson-developer-cloud": "^2.0.2"
+    "watson-developer-cloud": "^2.1.0",
+    "webpack": "^1.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

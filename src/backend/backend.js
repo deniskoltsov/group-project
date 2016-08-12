@@ -2,12 +2,19 @@ const express = require('express'),
       app = express(),
       cors = require('cors'),
       request = require('request'),
-      bodyParser = require('body-parser');
-      watson = require('watson-developer-cloud');
+      bodyParser = require('body-parser'),
+      watson = require('watson-developer-cloud'),
+      path = require('path');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+app.use(express.static(__dirname + '/public'))
+
+app.get('*', (req, res) =>
+  res.sendFile(path.resolve(__dirname, 'public', 'index.html'))
+)
 
 app.post('/searchtrack', (req, res) => {
   const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f'
@@ -41,6 +48,6 @@ app.post('/analyze', (req, res) => {
 })
 
 
-app.listen(5000);
+app.listen(8080);
 
-console.log('Express server started on port 5000');
+console.log('Express server started on port 8080');

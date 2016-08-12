@@ -4,7 +4,7 @@ import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
 import {Link} from 'react-router';
-import AudioRecorder from 'react-audio-recorder';
+
 
 import '../css/App.css';
 
@@ -76,7 +76,7 @@ class App extends Component {
     lastfm.getInfo(this.state.searchArtistInput)
     .then(res => {
       this.setState({
-        bio: res.artist.bio.content
+        bio: res.artist.bio.content.slice(0, -175)
       })
     })
     watsonAnalyze.analyze(this.props.lyrics).then((json) => {
@@ -121,9 +121,7 @@ class App extends Component {
             <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
-          <button onClick={(event) => this.handleRecord(event)}>Record</button>
         </div>
-        <AudioRecorder />
         {childrenWithProps}
       </div>
     );
