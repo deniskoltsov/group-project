@@ -3,13 +3,8 @@ import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
-import Shazam from './Shazam.js';
 import {Link} from 'react-router';
-<<<<<<< HEAD
-import AudioRecorder from 'react-audio-recorder';
-import firebase from '../util/utils-firebase';
-=======
->>>>>>> 53a03b5fe4c6468ea8643c184cdd5f1f3cda2924
+
 
 import '../css/App.css';
 
@@ -91,13 +86,6 @@ class App extends Component {
       });
   }
 
-  sendSong(data) {
-    firebase.addFav()
-    .then(res => {
-      console.log("wavyyyy", res);
-    })
-  }
-
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
       searchArtistInput: this.state.searchArtistInput,
@@ -134,8 +122,6 @@ class App extends Component {
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
-        <AudioRecorder onChange={(data) => this.sendSong(data)}/>
-        <Shazam />
         {childrenWithProps}
       </div>
     );
