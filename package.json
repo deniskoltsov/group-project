@@ -19,7 +19,8 @@
     "react-router": "^2.6.1",
     "request": "^2.65.0",
     "url": "^0.11.0",
-    "watson-developer-cloud": "^2.1.0"
+    "watson-developer-cloud": "^2.1.0",
+    "webpack": "^1.13.1"
   },
   "scripts": {
     "start": "react-scripts start",

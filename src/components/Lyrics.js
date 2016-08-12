@@ -11,17 +11,22 @@ class Lyrics extends Component {
     watsonResponse: {},
     videoURL: "",
     videoUrlEnd: "?autoplay=1",
-    volume: .4
+    volume: .4,
+    start: false
     }
   }
 
   onClickTranslate(event) {
-    //do all ajax here
-    util.translate(this.props.lyrics).then((res) => {
-      this.setState({watsonResponse: res});
-      this.setState({videoURL: this.props.videoURLInstrumental})
-      console.log(res);
-    });
+    if (this.state.start === false) {
+      util.translate(this.props.lyrics).then((res) => {
+        this.setState({watsonResponse: res});
+        this.setState({videoURL: this.props.videoURLInstrumental})
+        console.log(res);
+        this.setState({start: true})
+        });
+    } else {
+      this.setState({start: false})
+    }
   }
 
   render() {
@@ -35,8 +40,8 @@ class Lyrics extends Component {
         <div className='button-container'>
         <button className='lyrics-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickTranslate(event)}>Spit it Watson</button>
         </div>
-        <ReactPlayer className='player' url={this.state.watsonResponse.url} playing/>
-        <ReactPlayer className='player' url={this.state.videoURL} volume={this.state.volume} playing/>
+        <ReactPlayer className='player' url={this.state.watsonResponse.url} playing={this.state.start}/>
+        <ReactPlayer className='player' url={this.state.videoURL} volume={this.state.volume} playing={this.state.start}/>
       </div>
     );
   }
