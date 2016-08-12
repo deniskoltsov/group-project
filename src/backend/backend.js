@@ -47,7 +47,8 @@ app.post('/analyze', (req, res) => {
   })
 })
 
+PORT = process.env.PORT || 80;
 
-app.listen(8080);
+app.listen(PORT);
 
-console.log('Express server started on port 8080');
+console.log('Express server started on port', PORT);
