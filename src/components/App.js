@@ -3,7 +3,6 @@ import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
-import Shazam from './Shazam.js';
 import {Link} from 'react-router';
 
 import '../css/App.css';
