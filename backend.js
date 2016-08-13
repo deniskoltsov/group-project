@@ -40,19 +40,19 @@ app.post('/urban-translation', (req, res) => {
 
 app.post('/analyze', (req, res) => {
   const url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=' + req.body.data.lyrics
-  console.log(url)
+  console.log('ANALYZE LYRICS URL LINE 43:', url)
   request(url, (err, response, body) => {
     res.send(body);
-    console.log(response)
+    console.log('ANALYZE RESPONSE LINE 46:', response)
   })
 })
 
-app.post('/speech', (req, res) => {
+app.get('/speech', (req, res) => {
   const url = 'https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + req.body.data.input
-  console.log(url)
+  console.log('BACKENED URL, LINE 52:', url)
   request(url, (err, response, body) => {
     res.send(body);
-    console.log(response)
+    console.log('BACKENED RESPONSE, LINE 55:'response)
   })
 })
 

@@ -3,12 +3,12 @@ import axios from 'axios';
 export default {
   translate: function(input) {
     const axiosSettings = {
-      method: 'POST',
+      method: 'GET',
       data: {
         input: input
       }
     }
-    return axios.post('https://immense-beach-20112.herokuapp.com/speech', axiosSettings).then((response) => {
+    return axios.get('https://immense-beach-20112.herokuapp.com/speech', axiosSettings).then((response) => {
       return response;
     });
   },
