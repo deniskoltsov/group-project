@@ -9,7 +9,8 @@ export default {
       },
       headers: {
         'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
-        'Access-Control-Allow-Origin': "*"
+        'Access-Control-Allow-Origin': "*",
+        "Access-Control-Allow-Headers": "Origin"
       }
     }
     return fetch('https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + input, fetchSettings).then((response) => {
