@@ -8,6 +8,9 @@ export default {
         "url": "https://watson-api-explorer.mybluemix.net/text-to-speech/api",
         "password": "k73aVGARYwBn",
         "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+      },
+      headers: {
+        "Access-Control-Allow-Origin": "*"
       }
     }
     return fetch('https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + input, axiosSettings).then((response) => {
