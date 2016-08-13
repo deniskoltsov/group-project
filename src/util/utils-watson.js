@@ -8,6 +8,7 @@ export default {
         input: input
       },
       headers: {
+        'Content-Type' : 'application/x-www-form-urlencoded; charset=UTF-8',
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Credentials': 'true',
         'Access-Control-Allow-Methods': 'GET,HEAD,OPTIONS,POST,PUT',
