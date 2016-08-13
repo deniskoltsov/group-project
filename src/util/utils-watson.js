@@ -6,6 +6,11 @@ export default {
       method: 'POST',
       data: {
         input: input
+      },
+      credentials: {
+        "url": "https://stream.watsonplatform.net/speech-to-text/api",
+        "password": "bozcgKOzBJo4",
+        "username": "1d9b6701-84ed-4a2b-93d0-bfdb3a1806c8"
       }
     }
     return axios.post('https://immense-beach-20112.herokuapp.com/speech', axiosSettings).then((response) => {
