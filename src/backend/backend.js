@@ -48,6 +48,6 @@ app.post('/analyze', (req, res) => {
 })
 
 
-app.listen(8080);
+app.listen(5000);
 
-console.log('Express server started on port 8080');
+console.log('Express server started on port 5000');
