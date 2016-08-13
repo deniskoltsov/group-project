@@ -40,6 +40,15 @@ app.post('/analyze', (req, res) => {
   })
 })
 
+app.post('/speech', (req, res) => {
+  const url = 'https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + req.body.data.input
+  console.log(url)
+  request(url, (err, response, body) => {
+    res.send(body);
+    console.log(response)
+  })
+})
+
 
 app.listen(5000);
 
