@@ -18,7 +18,29 @@ export default {
       method: 'POST',
       data: {
         lyrics: lyrics
+<<<<<<< HEAD
+=======
+      },
+      credentials: {
+<<<<<<< HEAD
+        "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+        "password": "k73aVGARYwBn",
+        "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+>>>>>>> 5e7e44eef01e1417598e2282ee1ba676110f55db
       }
+=======
+>>>>>>> video
+             "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+             "password": "k73aVGARYwBn",
+             "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+       }
+<<<<<<< HEAD
+=======
+        "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+        "password": "k73aVGARYwBn",
+        "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+      }
+>>>>>>> video
     }
     return axios.post('http://localhost:5000/analyze', axiosSettings).then((response) => {
       console.log('ANALYZE RESPONSE UTIL:', response);

@@ -43,7 +43,6 @@ class App extends Component {
     event.preventDefault();
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
-      // console.log(this.state.response);
       this.setState({song: this.state.response.data.message.body.track.track_name});
       this.setState({artist: this.state.response.data.message.body.track.artist_name});
       this.setState({albumName: this.state.response.data.message.body.track.album_name});
@@ -119,7 +118,6 @@ class App extends Component {
               <button className='buttonnnn' onClick={(event) => this.onClickSearch(event)}>
                 <Link to='/main' className='search-button waves-effect waves-teal btn-flat'>Search</Link>
               </button>
-
             </form>
           </div>
           <div className='nav-item'>
