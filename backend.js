@@ -56,9 +56,6 @@ app.post('/speech', (req, res) => {
   })
 })
 
-app.listen(5000);
-
-console.log('Express server started on port 5000');
 PORT = process.env.PORT || 80;
 app.listen(PORT);
 
