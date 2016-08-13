@@ -154,7 +154,7 @@ class App extends Component {
             <h3>- LYRICAL GENIUS -</h3>
             <p>The one and only place you need to find<span className='almost'>(almost)</span> everything about a song.</p>
           </div>
-          <img className='cover-image' src='../src/assets/cover-2.jpg'></img>
+          <img className='cover-image' src='../src/assets/cover.jpg'></img>
         </div>
       </div>
     );
