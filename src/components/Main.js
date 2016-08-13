@@ -5,7 +5,6 @@ import Urban from './Urban.js';
 import Video from './Video.js';
 import Info from './Info.js';
 import Analyze from './Analyze.js';
-import Watson from './Watson.js';
 import '../css/Main.css';
 
 class Main extends Component {
@@ -19,7 +18,10 @@ class Main extends Component {
         <Urban artist={this.props.artist} song={this.props.song}/>
         <Video videoURL={this.props.videoURL}/>
         <Analyze lyrics={this.props.lyrics} analysis={this.props.analysis} tonesObject={this.props.tonesObject} />
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5193ea7094e125ba6691cd06e231c3591761a6ce
       </div>
     );
   }
