@@ -42,7 +42,7 @@ class App extends Component {
     event.preventDefault();
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
-      console.log(this.state.response);
+      console.log('on click response', this.state.response);
       this.setState({song: this.state.response.data.message.body.track.track_name});
       this.setState({artist: this.state.response.data.message.body.track.artist_name});
       this.setState({albumName: this.state.response.data.message.body.track.album_name});
@@ -65,7 +65,7 @@ class App extends Component {
       }
       util.getLyrics(data)
       .then(res => {
-        console.log(res)
+        console.log('lyric api response', res)
         this.setState({
           lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58)
         })
@@ -79,9 +79,9 @@ class App extends Component {
     })
     watsonAnalyze.analyze(this.state.lyrics).then((json) => {
         this.setState({analysis: json});
-        this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
+        this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones});
+        console.log('all state', this.state );
         console.log('tonesObject:', this.state.tonesObject);
-        console.log('returned analysis', this.state.analyis );
       });
   }
 

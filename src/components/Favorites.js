@@ -20,7 +20,7 @@ class Favorites extends Component {
 
   onClick(e) {
     e.preventDefault();
-    console.log(e.target.value)
+    console.log('input', e.target.value)
     firebase.delete(e.target.value).then(res => {
       console.log(res);
     })
@@ -39,7 +39,7 @@ class Favorites extends Component {
         }
       }
       console.log('fave array', favoritesArray);
-      console.log('fave array', logArray);
+      console.log('log array', logArray);
     }
 
     return (
