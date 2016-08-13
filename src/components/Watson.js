@@ -18,8 +18,13 @@ handleChange(event){
 
 onClickTranslate(event) {
   //do all ajax here
+<<<<<<< HEAD
   const watsonInput = this.state.watsonInput;
   console.log(this.props.speech)
+=======
+  const watsonInput = this.props.speech;
+  console.log('speech prop', this.props.speech)
+>>>>>>> 5e7e44eef01e1417598e2282ee1ba676110f55db
   util.translate(watsonInput).then((res) => {
     this.setState({watsonResponse: res});
     console.log(res);
