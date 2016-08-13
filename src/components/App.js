@@ -77,10 +77,11 @@ class App extends Component {
         bio: res.artist.bio.content.slice(0, -175)
       })
     })
-    watsonAnalyze.analyze(this.props.lyrics).then((json) => {
+    watsonAnalyze.analyze(this.state.lyrics).then((json) => {
         this.setState({analysis: json});
         this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
         console.log('tonesObject:', this.state.tonesObject);
+        console.log('returned analysis', this.state.analyis );
       });
   }
 
@@ -119,6 +120,7 @@ class App extends Component {
             <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
+        <h4>CHECKING IF THIS THING WORKS</h4>
         {childrenWithProps}
       </div>
     );

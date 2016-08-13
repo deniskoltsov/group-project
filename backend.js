@@ -17,14 +17,14 @@ app.get('*', (req, res) =>
 )
 
 app.post('/searchtrack', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f'
+  const url = 'https://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f'
   request(url, (err, response, body) => {
    res.send(body);
   })
 })
 
 app.post('/searchlyrics', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f';
+  const url = 'https://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f';
   request(url, (err, response, body) => {
     res.send(body);
   })
@@ -40,14 +40,26 @@ app.post('/urban-translation', (req, res) => {
 
 app.post('/analyze', (req, res) => {
   const url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=' + req.body.data.lyrics
-  console.log(url)
+  console.log('ANALYZE LYRICS URL LINE 43:', url)
   request(url, (err, response, body) => {
     res.send(body);
-    console.log(response)
+    console.log('ANALYZE RESPONSE LINE 46:', response)
   })
 })
 
+app.post('/speech', (req, res) => {
+  const url = 'https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + req.body.data.input
+  console.log('BACKENED URL, LINE 52:', url)
+  request(url, (err, response, body) => {
+    res.send(body);
+    console.log('BACKENED RESPONSE, LINE 55:', response)
+  })
+})
 
-app.listen(8080);
+app.listen(5000);
 
-console.log('Express server started on port 8080');
+console.log('Express server started on port 5000');
+PORT = process.env.PORT || 80;
+app.listen(PORT);
+
+console.log('Express server started on port', PORT);
