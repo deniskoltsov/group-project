@@ -18,7 +18,6 @@ export default {
     });
   },
   analyze: function(lyrics) {
-    console.log(lyrics);
     const axiosSettings = {
       method: 'POST',
       data: {
