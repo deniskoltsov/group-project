@@ -8,7 +8,7 @@ export default {
         song: song
       }
     }
-    return axios.post('https://immense-beach-20112.herokuapp.com/searchtrack', axiosSettings).then(res => {
+    return axios.post('http://localhost:8080/searchtrack', axiosSettings).then(res => {
       return res
     })
   },
@@ -17,7 +17,7 @@ export default {
       method: 'POST',
       data: track
     }
-    return axios.post('https://immense-beach-20112.herokuapp.com/searchlyrics', axiosSettings).then(res => {
+    return axios.post('http://localhost:8080/searchlyrics', axiosSettings).then(res => {
       return res
     })
   }
