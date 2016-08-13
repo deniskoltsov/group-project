@@ -146,6 +146,7 @@ class App extends Component {
             <Link onClick={(event) => this.onClickFav(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
+        <div>{childrenWithProps}</div>
         <div className={this.state.cover}>
           <div className='cover-header'>
             <img className='cover-logo' src='../src/assets/brain.png'></img>
@@ -155,7 +156,6 @@ class App extends Component {
           </div>
           <img className='cover-image' src='../src/assets/cover-2.jpg'></img>
         </div>
-        {childrenWithProps}
       </div>
     );
   }
