@@ -79,7 +79,7 @@ class App extends Component {
         bio: res.artist.bio.content.slice(0, -175)
       })
     })
-    watsonAnalyze.analyze(this.props.lyrics).then((json) => {
+    watsonAnalyze.analyze(this.state.lyrics).then((json) => {
         this.setState({analysis: json});
         this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
         console.log('tonesObject:', this.state.tonesObject);

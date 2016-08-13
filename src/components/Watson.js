@@ -18,7 +18,7 @@ handleChange(event){
 
 onClickTranslate(event) {
   //do all ajax here
-  const watsonInput = this.state.watsonInput;
+  const watsonInput = this.props.lyrics;
   util.translate(watsonInput).then((res) => {
     this.setState({watsonResponse: res});
     console.log(res);
