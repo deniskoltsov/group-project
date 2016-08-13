@@ -25,27 +25,34 @@ app.post('/searchlyrics', (req, res) => {
 
 app.post('/urban-translation', (req, res) => {
   const url = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + req.body.data.input + '&mashape-key=PTCbf7suIBmshuOBDhfSKo0RAwZPp1dXj1PjsnMEx2Z5QbSAPV';
-  console.log('url:', url);
+  // console.log('url:', url);
   request(url, (err, response, body) => {
     res.send(body);
   })
 })
 
 app.post('/analyze', (req, res) => {
-  const url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=' + req.body.data.lyrics
-  console.log(url)
+  const url = 'https://watson-api-explorer.mybluemix.net/tone-analyzer/api/v3/tone?version=2016-05-19&text=' + req.body.data.lyrics;
+  console.log('REQ.BODY.DATA.LYRICS:', req.body.data.lyrics);
+  console.log('ANALYZE URL:', url)
   request(url, (err, response, body) => {
     res.send(body);
-    console.log(response)
+    console.log('ANALYZE BODY:', body);
+    console.log('ANALYZE RESPONSE:' ,response)
   })
 })
 
+//   'https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text='
+
 app.post('/speech', (req, res) => {
-  const url = 'https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + req.body.data.input
-  console.log(url)
+  const url =
+  'https://stream.watsonplatform.net/text-to-speech/api' + req.body.data.input
+  // console.log('REQ.BODY.DATA.INPUT FROM BACKEND:', req.body.data.input)
+  // console.log('TEXT TO SPEECH URL FROM BACKEND:', url)
   request(url, (err, response, body) => {
     res.send(body);
-    console.log(response)
+    // console.log('THE BODY OF THE RESPONSE:', body);
+    // console.log('THE RESPONSE AFTER THE REQUEST IS MADE FROM BACKEND:', response)
   })
 })
 

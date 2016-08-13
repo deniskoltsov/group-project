@@ -2,34 +2,26 @@ import axios from 'axios';
 
 export default {
   translate: function(input) {
-    const axiosSettings = {
-      method: 'POST',
+    const fetchSettings = {
+      method: 'GET',
       data: {
         input: input
-      },
-      "credentials": {
-        "url": "https://stream.watsonplatform.net/speech-to-text/api",
-        "password": "bozcgKOzBJo4",
-        "username": "1d9b6701-84ed-4a2b-93d0-bfdb3a1806c8"
       }
     }
-    return axios.post('http://localhost:5000/speech', axiosSettings).then((response) => {
+    return fetch('https://watson-api-explorer.mybluemix.net/text-to-speech/api/v1/synthesize?accept=audio%2Fogg%3Bcodecs%3Dopus&voice=en-US_MichaelVoice&text=' + input, fetchSettings).then((response) => {
       return response;
     });
   },
   analyze: function(lyrics) {
+    console.log('afsakdufhksdf', lyrics);
     const axiosSettings = {
       method: 'POST',
       data: {
         lyrics: lyrics
-      },
-      credentials: {
-        "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "password": "k73aVGARYwBn",
-        "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
       }
     }
     return axios.post('http://localhost:5000/analyze', axiosSettings).then((response) => {
+      console.log('ANALYZE RESPONSE UTIL:', response);
       return response;
     });
   }
