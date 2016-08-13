@@ -3,6 +3,7 @@ import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
+import firebase from '../util/utils-firebase.js';
 import {Link} from 'react-router';
 
 import '../css/App.css';
@@ -28,6 +29,7 @@ class App extends Component {
       bio: "",
       analysis: {},
       tonesObject: [],
+      favResults: [],
       cover: 'display-cover-show'
     }
   }
@@ -88,8 +90,16 @@ class App extends Component {
     })
   }
 
-  onClickOther(event) {
+  onClickTeam(event) {
     this.setState({cover: 'display-cover-show-none'})
+  }
+
+  onClickFav(event) {
+    this.setState({cover: 'display-cover-show-none'})
+    firebase.viewAll().then(res => {
+      console.log('results', res);
+      this.setState({favResults: [res]})
+    })
   }
 
   onClickLogo(event) {
@@ -114,6 +124,7 @@ class App extends Component {
       bio: this.state.bio,
       analysis: this.state.analysis,
       tonesObject: this.state.tonesObject,
+      favResults: this.state.favResults,
     }))
     return (
       <div className="App">
@@ -131,8 +142,8 @@ class App extends Component {
             </form>
           </div>
           <div className='nav-item'>
-            <Link onClick={(event) => this.onClickOther(event)} className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
-            <Link onClick={(event) => this.onClickOther(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
+            <Link onClick={(event) => this.onClickTeam(event)} className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
+            <Link onClick={(event) => this.onClickFav(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
         <div className={this.state.cover}>
