@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export default {
   translate: function(input) {
-    const fetchSettings = {
+    const axiosSettings = {
       method: 'POST',
       data: {
         input: input
@@ -13,7 +13,7 @@ export default {
         "username": "1d9b6701-84ed-4a2b-93d0-bfdb3a1806c8"
       }
     }
-    return fetch('https://immense-beach-20112.herokuapp.com/speech', fetchSettings).then((response) => {
+    return axios.post('https://immense-beach-20112.herokuapp.com/speech', axiosSettings).then((response) => {
       return response;
     });
   },
