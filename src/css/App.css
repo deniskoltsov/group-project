@@ -12,9 +12,13 @@
 .input {
   width: 150px !important;
   margin: 2% !important;
-  background-color: white !important;
   height: 30px !important;
+  color: white !important;
   opacity: .8;
+  border-bottom: 1px solid white !important;
+}
+.input::placeholder {
+  color: white !important;
 }
 form {
   width: 600px !important;
