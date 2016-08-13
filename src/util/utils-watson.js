@@ -7,13 +7,13 @@ export default {
       data: {
         input: input
       },
-      credentials: {
+      "credentials": {
         "url": "https://stream.watsonplatform.net/speech-to-text/api",
         "password": "bozcgKOzBJo4",
         "username": "1d9b6701-84ed-4a2b-93d0-bfdb3a1806c8"
       }
     }
-    return axios.post('https://immense-beach-20112.herokuapp.com/speech', axiosSettings).then((response) => {
+    return axios.post('http://localhost:5000/speech', axiosSettings).then((response) => {
       return response;
     });
   },
@@ -29,7 +29,7 @@ export default {
         "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
       }
     }
-    return axios.post('https://immense-beach-20112.herokuapp.com/analyze', axiosSettings).then((response) => {
+    return axios.post('http://localhost:5000/analyze', axiosSettings).then((response) => {
       return response;
     });
   }
