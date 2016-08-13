@@ -33,7 +33,7 @@ class Album extends Component {
             <p>Album: {this.props.albumName}</p>
           </div>
           <div className='image-container'>
-            <img className='album-image' src={this.props.albumImage} alt=''></img>
+            <img className='album-image' src={this.props.albumImage} alt='no album cover found'></img>
           </div>
         </div>
           <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to Favorites</button>

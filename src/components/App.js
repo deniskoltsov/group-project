@@ -27,7 +27,8 @@ class App extends Component {
       lyrics: "",
       bio: "",
       analysis: {},
-      tonesObject: []
+      tonesObject: [],
+      cover: 'display-cover-show'
     }
   }
 
@@ -41,6 +42,7 @@ class App extends Component {
 
   onClickSearch(event) {
     event.preventDefault();
+    this.setState({cover: 'display-cover-show-none'})
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
       this.setState({song: this.state.response.data.message.body.track.track_name});
@@ -86,6 +88,14 @@ class App extends Component {
     })
   }
 
+  onClickOther(event) {
+    this.setState({cover: 'display-cover-show-none'})
+  }
+
+  onClickLogo(event) {
+    this.setState({cover: 'display-cover-show'})
+  }
+
   render() {
     const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {
       searchArtistInput: this.state.searchArtistInput,
@@ -103,13 +113,13 @@ class App extends Component {
       lyrics: this.state.lyrics,
       bio: this.state.bio,
       analysis: this.state.analysis,
-      tonesObject: this.state.tonesObject
+      tonesObject: this.state.tonesObject,
     }))
     return (
       <div className="App">
         <div className='nav-container'>
           <div className='nav-item'>
-            <h7>Logo Goes Here</h7>
+            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect waves-teal btn-flat" to="/"><img className='main-logo' src='../src/assets/brain.png'></img></Link>
           </div>
           <div className='nav-item'>
             <form>
@@ -121,11 +131,19 @@ class App extends Component {
             </form>
           </div>
           <div className='nav-item'>
-            <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
-            <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
+            <Link onClick={(event) => this.onClickOther(event)} className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
+            <Link onClick={(event) => this.onClickOther(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
-        <h4>fuck watson</h4>
+        <div className={this.state.cover}>
+          <div className='cover-header'>
+            <img className='cover-logo' src='../src/assets/brain.png'></img>
+            <h6>Welcome to</h6>
+            <h3>- LYRICAL GENIUS -</h3>
+            <p>The one and only place you need to find<span className='almost'>(almost)</span> everything about a song.</p>
+          </div>
+          <img className='cover-image' src='../src/assets/cover-2.jpg'></img>
+        </div>
         {childrenWithProps}
       </div>
     );
