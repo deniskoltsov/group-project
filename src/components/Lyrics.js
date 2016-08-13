@@ -20,8 +20,9 @@ class Lyrics extends Component {
     if (this.state.start === false) {
       util.translate(this.props.lyrics).then((res) => {
         this.setState({watsonResponse: res});
+        console.log('watson response:', res);
         this.setState({videoURL: this.props.videoURLInstrumental})
-        console.log(res);
+        console.log('watson url',this.state.watsonResponse.url);
         this.setState({start: true})
         });
     } else {
