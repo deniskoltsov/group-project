@@ -28,6 +28,10 @@ export default {
         "password": "k73aVGARYwBn",
         "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
       }
+             "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
+             "password": "k73aVGARYwBn",
+             "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+       }
     }
     return axios.post('https://immense-beach-20112.herokuapp.com/analyze', axiosSettings).then((response) => {
       return response;
