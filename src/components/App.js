@@ -83,6 +83,7 @@ class App extends Component {
         this.setState({analysis: json});
         this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
         console.log('tonesObject:', this.state.tonesObject);
+        console.log('returned object', json.data );
       });
   }
 
