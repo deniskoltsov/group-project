@@ -9,7 +9,7 @@ export default {
         },
         headers: { "Accept": "text/plain" }
       }
-    return axios.post('http://localhost:8080/urban-translation', axiosSettings).then(res => {
+    return axios.post('https://immense-beach-20112.herokuapp.com/urban-translation', axiosSettings).then(res => {
       return res
     })
   }
