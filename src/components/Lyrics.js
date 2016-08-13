@@ -21,8 +21,9 @@ class Lyrics extends Component {
       console.log(this.props.lyrics)
       util.translate(this.props.lyrics).then((res) => {
         this.setState({watsonResponse: res});
+        console.log('watson response:', res);
         this.setState({videoURL: this.props.videoURLInstrumental})
-        console.log('watson response', res);
+        console.log('watson url',this.state.watsonResponse.url);
         this.setState({start: true})
         });
     } else {

@@ -24,7 +24,7 @@ onClickTranslate(event) {
   const urbanInput = this.state.urbanInput;
   util.getUrbanTranslation(urbanInput).then((res) => {
     this.setState({urbanResponse: res});
-    console.log('urbanResponse: ', this.state.urbanResponse);
+    // console.log('urbanResponse: ', this.state.urbanResponse);
     this.setState({definition: res.data.list[0].definition});
     this.setState({example: res.data.list[0].example});
   });

@@ -32,7 +32,7 @@
     "babel-preset-react": "^6.5.0"
   },
   "scripts": {
-    "start": "node backend.js",
+    "start": "react-scripts start",
     "postinstall": "webpack -p --config webpack.prod.config.js",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
