@@ -52,7 +52,7 @@ app.post('/speech', (req, res) => {
   console.log('BACKENED URL, LINE 52:', url)
   request(url, (err, response, body) => {
     res.send(body);
-    console.log('BACKENED RESPONSE, LINE 55:'response)
+    console.log('BACKENED RESPONSE, LINE 55:', response)
   })
 })
 
