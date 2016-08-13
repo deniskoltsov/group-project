@@ -4,8 +4,6 @@ import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
 import {Link} from 'react-router';
-
-
 import '../css/App.css';
 
 class App extends Component {
@@ -114,7 +112,6 @@ class App extends Component {
               <input className='input' placeholder='artist' onChange={(event) => this.handleChangeArtist(event)}/>
               <input className='input' placeholder='song' onChange={(event) => this.handleChangeSong(event)}/>
               <button className='buttonnnn' onClick={(event) => this.onClickSearch(event)}><Link to='/main' className='search-button waves-effect waves-teal btn-flat' >Search</Link></button>
-
             </form>
           </div>
           <div className='nav-item'>
