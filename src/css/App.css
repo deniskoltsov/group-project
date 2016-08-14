@@ -1,6 +1,7 @@
 .App {
   text-align: center;
 }
+
 .nav-container {
   background-color: #BEDB39;
   display: flex;
@@ -9,6 +10,7 @@
   height: 75px;
   overflow: hidden;
 }
+
 .input {
   width: 150px !important;
   margin: 2% !important;
@@ -17,60 +19,75 @@
   opacity: .8;
   border-bottom: 1px solid white !important;
 }
+
 .input::placeholder {
   color: white !important;
 }
+
 form {
   width: 600px !important;
 }
+
 .search-button {
   border: 1px solid white;
   color: white;
 }
+
 Link {
   background-color: none;
 }
+
 .search-button:hover {
   background-color: white;
   color: #BEDB39;
 }
+
 .team-button {
   border: 1px solid white;
   color: white;
   margin: 0 !important;
 }
+
 .team-button:hover {
   background-color: white;
   color: #BEDB39;
 }
+
 .nav-item h7 {
   color: white;
 }
+
 .buttonnnn {
   border: none !important;
   background-color: #BEDB39 !important;
   padding: 0 !important;
   margin: 0 !important;
 }
+
 .favorites-button {
   border: 1px solid white;
   color: white;
   margin-left: 10px !important;
 }
+
 .favorites-button:hover {
   background-color: white;
   color: #BEDB39;
 }
+
 .display-cover-show {
   width: 100%;
   height: 100%;
 }
+
 .display-cover-show-none {
   display: none;
 }
+
 .cover-image {
   width: 100%;
 }
+
 .cover-header h3 {
   font-family: 'Roboto', sans-serif;
   font-weight: 800;
@@ -78,6 +95,7 @@ Link {
   font-size: 3em;
   letter-spacing: 20px;
 }
+
 .cover-header h6 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
@@ -86,6 +104,7 @@ Link {
   letter-spacing: 30px;
   text-shadow: 0px 0px 15px #2A2C2F;
 }
+
 .cover-header p {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
@@ -96,19 +115,23 @@ Link {
   letter-spacing: 10px;
   text-shadow: 0px 0px 15px #2A2C2F;
 }
+
 .cover-header {
   margin-top: 5%;
   position: fixed;
   width: 100%;
   text-align: center;
 }
+
 .almost {
   font-size: .5em;
   opacity: .5;
 }
+
 .cover-logo {
   width: 100px;
 }
+
 .main-logo {
   width: 60px;
 }
