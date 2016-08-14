@@ -18,6 +18,7 @@ class Lyrics extends Component {
 
   onClickTranslate(event) {
     if (this.state.start === false) {
+      console.log(this.props.lyrics)
       util.translate(this.props.lyrics).then((res) => {
         this.setState({watsonResponse: res});
         console.log('watson response:', res);
