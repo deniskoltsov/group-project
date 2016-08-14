@@ -130,7 +130,7 @@ class App extends Component {
       <div className="App">
         <div className='nav-container'>
           <div className='nav-item'>
-            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='../src/assets/brain.png'></img></Link>
+            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='http://i67.tinypic.com/103zno1.png'></img></Link>
           </div>
           <div className='nav-item'>
             <form>
@@ -146,7 +146,6 @@ class App extends Component {
             <Link onClick={(event) => this.onClickFav(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
-        <div>{childrenWithProps}</div>
         <div className={this.state.cover}>
           <div className='cover-header'>
             <img className='cover-logo' src='http://i67.tinypic.com/103zno1.png'></img>
