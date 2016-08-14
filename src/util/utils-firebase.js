@@ -6,8 +6,9 @@ export default {
   }
   return fetch('https://group-project-fb171.firebaseio.com/favorites.json', fetchSettings).then(res => {
     return res.json();
-  })
-},
+    })
+  },
+
   viewAll: function () {
     const fetchSettings = {
       method: 'GET'
@@ -16,6 +17,7 @@ export default {
       return res.json();
     })
   },
+
   delete: function (entry) {
     const fetchSettings = {
       method: 'DELETE'
