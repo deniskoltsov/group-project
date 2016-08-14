@@ -70,45 +70,8 @@ Link {
 }
 .cover-image {
   width: 100%;
-}
-.cover-header h3 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 800;
-  color: white;
-  font-size: 3em;
-  letter-spacing: 20px;
-}
-.cover-header h6 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  color: white;
-  font-size: 1em;
-  letter-spacing: 30px;
-  text-shadow: 0px 0px 15px #2A2C2F;
-}
-.cover-header p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 100;
-  color: white;
-  font-size: 2em;
-  width: 40%;
-  margin: 0 auto;
-  letter-spacing: 10px;
-  text-shadow: 0px 0px 15px #2A2C2F;
-}
-.cover-header {
-  margin-top: 5%;
-  position: fixed;
-  width: 100%;
-  text-align: center;
-}
-.almost {
-  font-size: .5em;
-  opacity: .5;
-}
-.cover-logo {
-  width: 100px;
+  height: 100%;
 }
 .main-logo {
-  width: 60px;
+  width: 250px;
 }
