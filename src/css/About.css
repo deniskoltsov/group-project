@@ -45,8 +45,8 @@
   border-right: 1px dotted #2A2C2F;
 }
 .member-container:hover .about-pics {
-  width: 150px;
-  border: 10px solid #45B29D;
+  width: 125px;
+  border: 5px solid #45B29D;
   transition: width .5s ease, border .5s ease;
 }
 .member-container:hover .member-name h4 {

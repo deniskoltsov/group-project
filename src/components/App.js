@@ -3,6 +3,7 @@ import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
+import firebase from '../util/utils-firebase.js';
 import {Link} from 'react-router';
 
 import '../css/App.css';
@@ -27,7 +28,9 @@ class App extends Component {
       lyrics: "",
       bio: "",
       analysis: {},
-      tonesObject: []
+      tonesObject: [],
+      favResults: [],
+      cover: 'display-cover-show'
     }
   }
 
@@ -41,6 +44,7 @@ class App extends Component {
 
   onClickSearch(event) {
     event.preventDefault();
+    this.setState({cover: 'display-cover-show-none'})
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
       this.setState({song: this.state.response.data.message.body.track.track_name});
@@ -70,7 +74,7 @@ class App extends Component {
       util.getLyrics(data).then(res => {
         console.log('GET LYRICS RESPONSE:', res)
         this.setState({
-          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58)
+          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58).replace(/[^\w\s!']/g,'').replace(/[\r\n]/g, ". ")
         })
         watsonAnalyze.analyze(this.state.lyrics).then((json) => {
           this.setState({analysis: json});
@@ -84,6 +88,22 @@ class App extends Component {
         })
       })
     })
+  }
+
+  onClickTeam(event) {
+    this.setState({cover: 'display-cover-show-none'})
+  }
+
+  onClickFav(event) {
+    this.setState({cover: 'display-cover-show-none'})
+    firebase.viewAll().then(res => {
+      console.log('results', res);
+      this.setState({favResults: [res]})
+    })
+  }
+
+  onClickLogo(event) {
+    this.setState({cover: 'display-cover-show'})
   }
 
   render() {
@@ -103,13 +123,14 @@ class App extends Component {
       lyrics: this.state.lyrics,
       bio: this.state.bio,
       analysis: this.state.analysis,
-      tonesObject: this.state.tonesObject
+      tonesObject: this.state.tonesObject,
+      favResults: this.state.favResults,
     }))
     return (
       <div className="App">
         <div className='nav-container'>
           <div className='nav-item'>
-            <h7>Logo Goes Here</h7>
+            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='../src/assets/brain.png'></img></Link>
           </div>
           <div className='nav-item'>
             <form>
@@ -121,9 +142,19 @@ class App extends Component {
             </form>
           </div>
           <div className='nav-item'>
-            <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
-            <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
+            <Link onClick={(event) => this.onClickTeam(event)} className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
+            <Link onClick={(event) => this.onClickFav(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
+        </div>
+        <div>{childrenWithProps}</div>
+        <div className={this.state.cover}>
+          <div className='cover-header'>
+            <img className='cover-logo' src='http://i67.tinypic.com/103zno1.png'></img>
+            <h6>Welcome to</h6>
+            <h3>- LYRICAL GENIUS -</h3>
+            <p>The one and only place you need to find<span className='almost'>(almost)</span> everything about a song.</p>
+          </div>
+          <img className='cover-image' src='http://i66.tinypic.com/bhzoxw.jpg'></img>
         </div>
         {childrenWithProps}
       </div>

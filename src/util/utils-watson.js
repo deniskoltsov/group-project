@@ -7,7 +7,6 @@ export default {
     });
   },
   analyze: function(lyrics) {
-    console.log('afsakdufhksdf', lyrics);
     const axiosSettings = {
       method: 'POST',
       data: {
