@@ -19,7 +19,9 @@ app.post('/searchtrack', (req, res) => {
 })
 
 app.post('/searchlyrics', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f';
+  const MUSIXMATCH_KEY = process.env.MUSIXMATCH_KEY;
+  console.log('musix', MUSIXMATCH_KEY);
+  const url = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=' + MUSIXMATCH_KEY;
   request(url, (err, response, body) => {
     res.send(body);
   })
