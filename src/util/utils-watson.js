@@ -7,6 +7,9 @@ export default {
     });
   },
   analyze: function(lyrics) {
+    const WATSON_TONE_PASSWORD = process.env.WATSON_TONE_PASSWORD;
+    const WATSON_TONE_USER = process.env.WATSON_TONE_USER;
+    console.log(WATSON_TONE_USER, WATSON_TONE_PASSWORD);
     const axiosSettings = {
       method: 'POST',
       data: {
@@ -14,8 +17,8 @@ export default {
       },
       credentials: {
         "url": "https://gateway.watsonplatform.net/tone-analyzer/api",
-        "password": "k73aVGARYwBn",
-        "username": "c952111d-55d4-4d1f-95f5-20b77bc9b4cc"
+        "password": WATSON_TONE_PASSWORD,
+        "username": WATSON_TONE_USER
       }
     }
     return axios.post('https://immense-beach-20112.herokuapp.com/analyze', axiosSettings).then((response) => {

@@ -10,21 +10,27 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/searchtrack', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f'
+  const MUSIXMATCH_KEY = process.env.MUSIXMATCH_KEY;
+  console.log('musix', MUSIXMATCH_KEY);
+  const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=' + MUSIXMATCH_KEY;
   request(url, (err, response, body) => {
    res.send(body);
   })
 })
 
 app.post('/searchlyrics', (req, res) => {
-  const url = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=262ed6e47e180f3fe28f5b2e621a5a3f';
+  const MUSIXMATCH_KEY = process.env.MUSIXMATCH_KEY;
+  console.log('musix', MUSIXMATCH_KEY);
+  const url = 'http://api.musixmatch.com/ws/1.1/track.lyrics.get?track_id=' + req.body.data.track_id + '&apikey=' + MUSIXMATCH_KEY;
   request(url, (err, response, body) => {
     res.send(body);
   })
 })
 
 app.post('/urban-translation', (req, res) => {
-  const url = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + req.body.data.input + '&mashape-key=PTCbf7suIBmshuOBDhfSKo0RAwZPp1dXj1PjsnMEx2Z5QbSAPV';
+  const MASHAPE_KEY = process.env.MASHAPE_KEY;
+  console.log('MASHAPE', MASHAPE_KEY);
+  const url = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + req.body.data.input + '&mashape-key=' + MASHAPE_KEY;
   // console.log('url:', url);
   request(url, (err, response, body) => {
     res.send(body);
