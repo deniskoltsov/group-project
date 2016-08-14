@@ -5,26 +5,31 @@
   flex-flow: wrap;
   margin: 0;
 }
+
 .logo {
   width: 25px;
   height: 25px;
   justify-content: space-between;
   ;
 }
+
 .member-container {
   width: 30%;
   margin: 1%;
 }
+
 .about-pics {
   width: 100px;
   border-radius: 50%;
 }
+
 .team-name {
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .team-name h8 {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
@@ -32,34 +37,41 @@
   color: #2A2C2F;
   padding: 1%;
 }
+
 .member-name h4 {
   text-transform: uppercase;
   color: #45B29D;
   font-size: 1em;
   padding: 1%;
 }
+
 .denis {
   border-right: 1px dotted #2A2C2F;
 }
+
 .hiro {
   border-right: 1px dotted #2A2C2F;
 }
+
 .member-container:hover .about-pics {
   width: 125px;
   border: 5px solid #45B29D;
   transition: width .5s ease, border .5s ease;
 }
+
 .member-container:hover .member-name h4 {
   color: #BEDB39;
   font-weight: 300;
   font-size: 1.2em;
   transition: color .5s ease, border .5s ease, font-size .5s ease, font-weight .5s ease;
 }
+
 .member-container:hover .logo {
   width: 30px;
   height: 30px;
   transition: width .5s ease, height .5s ease;
 }
+
 .member-story {
   font-family: 'Roboto', sans-serif;
   font-weight: 100;
@@ -70,6 +82,7 @@
   width: 250px;
   display: none;
 }
+
 .member-container:hover .member-story {
   display: block;
   transition: display .5s ease;
