@@ -130,8 +130,9 @@ Link {
 
 .cover-logo {
   width: 100px;
+  height: 100%;
 }
 
 .main-logo {
-  width: 60px;
+  width: 250px;
 }
