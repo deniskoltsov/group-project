@@ -24,8 +24,7 @@
 }
 
 .video-component:hover {
-  border: none;
-  background-color: #45B29D;
+  border: 1px dotted lightgray;
   height: 100%;
   transition: height .5s ease, background-color .5s ease;
 }
