@@ -12,6 +12,7 @@ export default {
       return res
     })
   },
+
   getLyrics: function (track) {
     const axiosSettings = {
       method: 'POST',
@@ -21,4 +22,5 @@ export default {
       return res
     })
   }
+
 }
