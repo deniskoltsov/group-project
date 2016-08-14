@@ -130,7 +130,8 @@ class App extends Component {
       <div className="App">
         <div className='nav-container'>
           <div className='nav-item'>
-            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='http://i67.tinypic.com/103zno1.png'></img></Link>
+            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='
+https://i68.tinypic.com/16azl7a.png'></img></Link>
           </div>
           <div className='nav-item'>
             <form>
@@ -146,16 +147,10 @@ class App extends Component {
             <Link onClick={(event) => this.onClickFav(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
+        <div>{childrenWithProps}</div>
         <div className={this.state.cover}>
-          <div className='cover-header'>
-            <img className='cover-logo' src='http://i67.tinypic.com/103zno1.png'></img>
-            <h6>Welcome to</h6>
-            <h3>- LYRICAL GENIUS -</h3>
-            <p>The one and only place you need to find<span className='almost'>(almost)</span> everything about a song.</p>
-          </div>
-          <img className='cover-image' src='http://i66.tinypic.com/bhzoxw.jpg'></img>
+          <img className='cover-image' src='http://i64.tinypic.com/wwjbip.jpg'></img>
         </div>
-        {childrenWithProps}
       </div>
     );
   }
