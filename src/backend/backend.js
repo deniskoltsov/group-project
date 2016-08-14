@@ -10,8 +10,9 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.post('/searchtrack', (req, res) => {
-  const MUSIX_MATCH_KEY = process.env.MUSIX_MATCH_KEY;
-  const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=' + MUSIX_MATCH_KEY;
+  const MUSIXMATCH_KEY = process.env.MUSIXMATCH_KEY;
+  console.log('musix', MUSIXMATCH_KEY);
+  const url = 'http://api.musixmatch.com/ws/1.1/matcher.track.get?q_track=' + req.body.data.song + '&q_artist=' + req.body.data.artist + '&apikey=' + MUSIXMATCH_KEY;
   request(url, (err, response, body) => {
    res.send(body);
   })

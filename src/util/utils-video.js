@@ -7,7 +7,7 @@ export default {
     const fetchSettings = {
       method: 'GET'
     }
-    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '+instrumental&key=' + YOUTUBE_API_KEY, fetchSettings).then((response) => {
+    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '+instrumental&key=AIzaSyAlZZBI54atQkryBoR6eyiQexXAQkIvfwc', fetchSettings).then((response) => {
       return response.json();
     });
   },
@@ -16,7 +16,7 @@ export default {
     const fetchSettings = {
       method: 'GET'
     }
-    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '&key=' + YOUTUBE_API_KEY, fetchSettings).then((response) => {
+    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '&key=AIzaSyAlZZBI54atQkryBoR6eyiQexXAQkIvfwc', fetchSettings).then((response) => {
       return response.json();
     });
   },
