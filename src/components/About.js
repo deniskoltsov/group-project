@@ -15,7 +15,7 @@ class About extends Component {
               <div className='member-name'>
                 <h4>Denis</h4>
               </div>
-              <img className='about-pics' src="http://i63.tinypic.com/2i6pe7n.jpg" alt="denis"/>
+              <img className='about-pics' src="http://i63.tinypic.com/2i6pe7n.jpg" alt="Denis"/>
               <br></br>
               <a className='icons' href="https://www.linkedin.com/in/denis-koltsov"><img className="logo" src="http://i66.tinypic.com/2ege1dz.png" alt="LinkedIn"/></a>
               <a className='icons' href="https://github.com/deniskoltsov"><img className="logo" src="http://i64.tinypic.com/e8jy2g.png" alt="Github"/></a>
@@ -26,7 +26,7 @@ class About extends Component {
               <div className='member-name'>
                 <h4>Hiro</h4>
               </div>
-              <img className='about-pics' src="http://i63.tinypic.com/4sbj7s.jpg" alt="hiro"/>
+              <img className='about-pics' src="http://i63.tinypic.com/4sbj7s.jpg" alt="Hiro"/>
               <br></br>
               <a className='icons' href="https://www.linkedin.com/in/hironarita"><img className="logo" src="http://i66.tinypic.com/2ege1dz.png" alt="LinkedIn"/></a>
               <a className='icons' href="https://github.com/hironarita"><img className="logo" src="http://i64.tinypic.com/e8jy2g.png" alt="Github"/></a>
@@ -37,7 +37,7 @@ class About extends Component {
               <div className='member-name'>
                 <h4>Maggie</h4>
               </div>
-              <img className='about-pics' src="http://i63.tinypic.com/2j3ft5h.png" alt="maggie"/>
+              <img className='about-pics' src="http://i63.tinypic.com/2j3ft5h.png" alt="Maggie"/>
               <br></br>
               <a className='icons' href="https://www.linkedin.com/in/maggiemerrell"><img className="logo" src="http://i66.tinypic.com/2ege1dz.png" alt="LinkedIn"/></a>
               <a className='icons' href="https://github.com/moodlemags">
