@@ -57,6 +57,7 @@ app.post('/speech', (req, res) => {
 })
 
 
-app.listen(5000);
-
-console.log('Express server started on port 5000');
+PORT = process.env.PORT || 5000;
+app.listen(PORT, function(){
+  console.log('listening to events on prot:', PORT)
+});
