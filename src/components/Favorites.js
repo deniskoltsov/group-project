@@ -3,24 +3,10 @@ import '../css/Favorites.css';
 import firebase from '../util/utils-firebase.js';
 
 class Favorites extends Component {
-  constructor() {
-    super();
-    this.state = {
-      results: [],
-      entry: ""
-    }
-  }
-
-  componentDidMount() {
-    firebase.viewAll().then(res => {
-      console.log('results', res);
-      this.setState({results: [res]})
-    })
-  }
 
   onClick(e) {
     e.preventDefault();
-    console.log(e.target.value)
+    console.log('input', e.target.value)
     firebase.delete(e.target.value).then(res => {
       console.log(res);
     })
@@ -29,17 +15,17 @@ class Favorites extends Component {
   render() {
     const favoritesArray = [];
     const logArray = [];
-    for (let key in this.state.results) {
-      if (this.state.results.length) {
-        favoritesArray.push(this.state.results[key])
+    for (let key in this.props.favResults) {
+      if (this.props.favResults.length) {
+        favoritesArray.push(this.props.favResults[key])
         for (let key in favoritesArray[0]) {
-          if (this.state.results.length) {
+          if (this.props.favResults.length) {
             logArray.push(favoritesArray[0][key])
           }
         }
       }
       console.log('fave array', favoritesArray);
-      console.log('fave array', logArray);
+      console.log('log array', logArray);
     }
 
     return (

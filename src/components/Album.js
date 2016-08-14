@@ -8,7 +8,7 @@ class Album extends Component {
   onClickFavorite(e) {
     e.preventDefault();
     const data = {};
-    console.log(this.props.searchArtistInput, this.props.searchSongInput);
+    console.log('inputs', this.props.searchArtistInput, this.props.searchSongInput);
     data[this.props.searchArtistInput + this.props.searchSongInput] = {
       artist: this.props.searchArtistInput,
       song: this.props.searchSongInput,
@@ -33,7 +33,7 @@ class Album extends Component {
             <p>Album: {this.props.albumName}</p>
           </div>
           <div className='image-container'>
-            <img className='album-image' src={this.props.albumImage} alt=''></img>
+            <img className='album-image' src={this.props.albumImage} alt='no album cover found'></img>
           </div>
         </div>
           <button className='favs-button waves-effect waves-teal btn-flat' onClick={(event) => this.onClickFavorite(event)}>Add to Favorites</button>

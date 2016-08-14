@@ -3,7 +3,9 @@ import util from '../util/utils-lyrics';
 import youtube from '../util/utils-video';
 import watsonAnalyze from '../util/utils-watson.js';
 import lastfm from '../util/utils-lastfm';
+import firebase from '../util/utils-firebase.js';
 import {Link} from 'react-router';
+
 import '../css/App.css';
 
 class App extends Component {
@@ -26,7 +28,9 @@ class App extends Component {
       lyrics: "",
       bio: "",
       analysis: {},
-      tonesObject: []
+      tonesObject: [],
+      favResults: [],
+      cover: 'display-cover-show'
     }
   }
 
@@ -38,51 +42,68 @@ class App extends Component {
     this.setState({searchSongInput: event.target.value})
   }
 
-  onClickSearch(event){
+  onClickSearch(event) {
     event.preventDefault();
+    this.setState({cover: 'display-cover-show-none'})
     util.getTrack(this.state.searchSongInput, this.state.searchArtistInput).then((response) => {
       this.setState({response: response});
-      console.log(this.state.response);
       this.setState({song: this.state.response.data.message.body.track.track_name});
       this.setState({artist: this.state.response.data.message.body.track.artist_name});
       this.setState({albumName: this.state.response.data.message.body.track.album_name});
       this.setState({albumImage: this.state.response.data.message.body.track.album_coverart_500x500});
 
-    youtube.getInstrumentalVideo(this.state.song).then((json) => {
-        console.log("video instrumental response:", json);
+      youtube.getInstrumentalVideo(this.state.song).then((json) => {
+        // console.log("video instrumental response:", json);
         this.setState({videoIDInstrumental: json.items[0].id.videoId});
-        this.setState({videoURLInstrumental: this.state.videoUrlStart + this.state.videoIDInstrumental + this.state.videoUrlEnd})
-        console.log('Instrumental VIDEO URL:', this.state.videoURLInstrumental);
-        });
-    youtube.getVideo(this.state.song).then((json) => {
-        console.log("Regular video response:", json);
+        this.setState({
+          videoURLInstrumental: this.state.videoUrlStart + this.state.videoIDInstrumental + this.state.videoUrlEnd
+        })
+        // console.log('Instrumental VIDEO URL:', this.state.videoURLInstrumental);
+      });
+      youtube.getVideo(this.state.song).then((json) => {
+        // console.log("Regular video response:", json);
         this.setState({videoID: json.items[0].id.videoId});
-        this.setState({videoURL: this.state.videoUrlStart + this.state.videoID + this.state.videoUrlEnd})
-        console.log('Regular VIDEO URL:', this.state.videoURL);
+        this.setState({
+          videoURL: this.state.videoUrlStart + this.state.videoID + this.state.videoUrlEnd
+        })
+        // console.log('Regular VIDEO URL:', this.state.videoURL);
       });
       const data = {
         track_id: response.data.message.body.track.track_id
       }
-      util.getLyrics(data)
-      .then(res => {
-        console.log(res)
+      util.getLyrics(data).then(res => {
+        console.log('GET LYRICS RESPONSE:', res)
         this.setState({
-          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58)
+          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58).replace(/[^\w\s!']/g,'').replace(/[\r\n]/g, ". ")
+        })
+        watsonAnalyze.analyze(this.state.lyrics).then((json) => {
+          this.setState({analysis: json});
+          this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
+          console.log('tonesObject:', this.state.tonesObject);
+        });
+      })
+      lastfm.getInfo(this.state.searchArtistInput).then(res => {
+        this.setState({
+          bio: res.artist.bio.content.slice(0, -175)
         })
       })
     })
-    lastfm.getInfo(this.state.searchArtistInput)
-    .then(res => {
-      this.setState({
-        bio: res.artist.bio.content.slice(0, -175)
-      })
+  }
+
+  onClickTeam(event) {
+    this.setState({cover: 'display-cover-show-none'})
+  }
+
+  onClickFav(event) {
+    this.setState({cover: 'display-cover-show-none'})
+    firebase.viewAll().then(res => {
+      console.log('results', res);
+      this.setState({favResults: [res]})
     })
-    watsonAnalyze.analyze(this.state.lyrics).then((json) => {
-        this.setState({analysis: json});
-        this.setState({tonesObject: json.data.document_tone.tone_categories[0].tones})
-        console.log('tonesObject:', this.state.tonesObject);
-        console.log('returned analysis', this.state.analyis );
-      });
+  }
+
+  onClickLogo(event) {
+    this.setState({cover: 'display-cover-show'})
   }
 
   render() {
@@ -102,26 +123,39 @@ class App extends Component {
       lyrics: this.state.lyrics,
       bio: this.state.bio,
       analysis: this.state.analysis,
-      tonesObject: this.state.tonesObject
+      tonesObject: this.state.tonesObject,
+      favResults: this.state.favResults,
     }))
     return (
       <div className="App">
         <div className='nav-container'>
-          <div className='nav-item'><h7>Logo Goes Here</h7></div>
+          <div className='nav-item'>
+            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='../src/assets/brain.png'></img></Link>
+          </div>
           <div className='nav-item'>
             <form>
               <input className='input' placeholder='artist' onChange={(event) => this.handleChangeArtist(event)}/>
               <input className='input' placeholder='song' onChange={(event) => this.handleChangeSong(event)}/>
-              <button className='buttonnnn' onClick={(event) => this.onClickSearch(event)}><Link to='/main' className='search-button waves-effect waves-teal btn-flat' >Search</Link></button>
+              <button className='buttonnnn' onClick={(event) => this.onClickSearch(event)}>
+                <Link to='/main' className='search-button waves-effect waves-teal btn-flat'>Search</Link>
+              </button>
             </form>
           </div>
           <div className='nav-item'>
-            <Link className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
-            <Link className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
+            <Link onClick={(event) => this.onClickTeam(event)} className="team-button waves-effect waves-teal btn-flat" to="/about">About</Link>
+            <Link onClick={(event) => this.onClickFav(event)} className="favorites-button waves-effect waves-teal btn-flat" to="/favorites">View Favorites</Link>
           </div>
         </div>
-        <h4>CHECKING IF THIS THING WORKS</h4>
-        {childrenWithProps}
+        <div>{childrenWithProps}</div>
+        <div className={this.state.cover}>
+          <div className='cover-header'>
+            <img className='cover-logo' src='../src/assets/brain.png'></img>
+            <h6>Welcome to</h6>
+            <h3>- LYRICAL GENIUS -</h3>
+            <p>The one and only place you need to find<span className='almost'>(almost)</span> everything about a song.</p>
+          </div>
+          <img className='cover-image' src='../src/assets/cover.jpg'></img>
+        </div>
       </div>
     );
   }
