@@ -2,8 +2,6 @@ import axios from 'axios';
 
 export default {
   getInstrumentalVideo: function(song) {
-    const YOUTUBE_KEY = process.env.YOUTUBE_KEY;
-    console.log('YOUTUBE', YOUTUBE_KEY);
     const fetchSettings = {
       method: 'GET'
     }
@@ -13,7 +11,6 @@ export default {
   },
 
   getVideo: function(song) {
-    const YOUTUBE_KEY = process.env.YOUTUBE_KEY;
     const fetchSettings = {
       method: 'GET'
     }
