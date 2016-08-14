@@ -2,18 +2,20 @@ import axios from 'axios';
 
 export default {
   getInstrumentalVideo: function(song) {
+    const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
     const fetchSettings = {
       method: 'GET'
     }
-    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '+instrumental&key=AIzaSyDRRYf5OzE5u7LKiRXslAULAUSxnS1SufE', fetchSettings).then((response) => {
+    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '+instrumental&key=' + YOUTUBE_API_KEY, fetchSettings).then((response) => {
       return response.json();
     });
   },
   getVideo: function(song) {
+    const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
     const fetchSettings = {
       method: 'GET'
     }
-    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '&key=AIzaSyDRRYf5OzE5u7LKiRXslAULAUSxnS1SufE', fetchSettings).then((response) => {
+    return fetch('https://www.googleapis.com/youtube/v3/search?part=snippet&q=' + song + '&key=' + YOUTUBE_API_KEY, fetchSettings).then((response) => {
       return response.json();
     });
   },

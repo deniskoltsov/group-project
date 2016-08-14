@@ -14,7 +14,7 @@ ReactDOM.render( (
       <Route path="/about" component={About}></Route>
       <Route path="/favorites" component={Favorites}></Route>
     </Route>
-  </Router>,
+  </Router>
 ),
   document.getElementById('root')
 );
