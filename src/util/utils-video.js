@@ -3,6 +3,7 @@ import axios from 'axios';
 export default {
   getInstrumentalVideo: function(song) {
     const YOUTUBE_API_KEY = process.env.YOUTUBE_API_KEY;
+    console.log('YOUTUBE', YOUTUBE_API_KEY);
     const fetchSettings = {
       method: 'GET'
     }

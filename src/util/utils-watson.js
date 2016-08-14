@@ -15,6 +15,7 @@ export default {
   analyze: function(lyrics) {
     const WATSON_TONE_PASSWORD = process.env.WATSON_TONE_PASSWORD;
     const WATSON_TONE_USER = process.env.WATSON_TONE_USER;
+    console.log(WATSON_TONE_USER, WATSON_TONE_PASSWORD);
     const axiosSettings = {
       method: 'POST',
       data: {
