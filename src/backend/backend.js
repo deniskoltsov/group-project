@@ -28,7 +28,9 @@ app.post('/searchlyrics', (req, res) => {
 })
 
 app.post('/urban-translation', (req, res) => {
-  const url = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + req.body.data.input + '&mashape-key=PTCbf7suIBmshuOBDhfSKo0RAwZPp1dXj1PjsnMEx2Z5QbSAPV';
+  const MASHAPE_KEY = process.env.MASHAPE_KEY;
+  console.log('MASHAPE', MASHAPE_KEY);
+  const url = 'https://mashape-community-urban-dictionary.p.mashape.com/define?term=' + req.body.data.input + '&mashape-key=' + MASHAPE_KEY;
   // console.log('url:', url);
   request(url, (err, response, body) => {
     res.send(body);
