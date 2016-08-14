@@ -130,7 +130,7 @@ class App extends Component {
       <div className="App">
         <div className='nav-container'>
           <div className='nav-item'>
-            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='../src/assets/brain.png'></img></Link>
+            <Link onClick={(event) => this.onClickLogo(event)} className="logo-button waves-effect" to="/"><img className='main-logo' src='../src/assets/brain-LOGO.png'></img></Link>
           </div>
           <div className='nav-item'>
             <form>
@@ -148,13 +148,7 @@ class App extends Component {
         </div>
         <div>{childrenWithProps}</div>
         <div className={this.state.cover}>
-          <div className='cover-header'>
-            <img className='cover-logo' src='../src/assets/brain.png'></img>
-            <h6>Welcome to</h6>
-            <h3>- LYRICAL GENIUS -</h3>
-            <p>The one and only place you need to find<span className='almost'>(almost)</span> everything about a song.</p>
-          </div>
-          <img className='cover-image' src='../src/assets/cover.jpg'></img>
+          <img className='cover-image' src='../src/assets/cover-3.jpg'></img>
         </div>
       </div>
     );
