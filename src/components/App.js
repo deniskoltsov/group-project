@@ -74,7 +74,7 @@ class App extends Component {
       util.getLyrics(data).then(res => {
         console.log('GET LYRICS RESPONSE:', res)
         this.setState({
-          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58)
+          lyrics: res.data.message.body.lyrics.lyrics_body.slice(0, -58).replace(/[^\w\s!']/g,'').replace(/[\r\n]/g, ". ")
         })
         watsonAnalyze.analyze(this.state.lyrics).then((json) => {
           this.setState({analysis: json});
